@@ -81,16 +81,15 @@ int rewindCarriage(){
 }
 
 /*
-        /+  /+
-       / | / |
-      /  |/  |
-     B A B A B
-	 --__--__-
-	 
+     |  /|  /|
+tcnt | / | / |
+     |/  |/  |
+comp B A B A B
+step --__--__-
 */
 
 ISR(TIMER0_COMPA_vect){
-	PORTB &= ~(1 << spindleStepPin);
+	PORTB &= ~(1 << spindleStepPin); //turn off step pin
 	steps_spindle++;
 }
 
@@ -100,7 +99,7 @@ ISR(TIMER1_COMPA_vect){
 }
 
 ISR(TIMER0_COMPB_vect){
-	PORTB |= (1 << spindleStepPin);
+	PORTB |= (1 << spindleStepPin); //turn on step pin
 	TCNT0 = 0;
 }
 
