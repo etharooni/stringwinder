@@ -11,9 +11,11 @@
 
 #define carriageStepPin PB0
 #define prescale_c 64
-#define rotpermeter_c  200
+#define rotpermeter_c 200
 #define stepsperrot_c 200
 #define microstep_c 1
+
+#define disablePin PB2
 
 #define steppulse_us 20
 
@@ -87,7 +89,7 @@ ISR(TIMER1_COMPB_vect){
 }
 
 int setup(void){ 
-	DDRB |= (1 << carriageStepPin)|(1 << spindleStepPin); // Set step pin as output
+	DDRB |= (1 << carriageStepPin)|(1 << spindleStepPin)|(1 << disablePin); // Set step pin as output
 	TCCR1B = 0b0011; //set the timer1 prescaler to 64 (bit 3 for CTC) <- p.137 of doc8161
 	// 1 / ( (16000000/64) / (2^8) ) * 1000 = 1.024ms
 	//         ^cpu   ^prescale ^bits = 976,562 hertz
@@ -100,6 +102,7 @@ int setup(void){
 	TCNT1 = 0; //reset and init counter
 	TCNT0 = 0;
 	
+	PORTB &= ~(1 << disablePin);
 	sei(); //  Enable global interrupts
 	//F_CPU/prescale/OCR1A/stepsperrot/microstep/rotpermeter  = meter/sec
 	//   steps/sec            |    rot/sec  |  meter/sec
@@ -119,4 +122,5 @@ int main (void){
 	}
 	PORTB = 0;
 	cli();
+	PORTB |= (1 << disablePin);
 }
