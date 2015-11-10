@@ -1,7 +1,7 @@
 //CNC String Winder v0.1 by Ethan Russell
 //designed for atmel atmega328p cpu
 
-#define F_CPU 16000000UL
+#define F_CPU 16000000
 
 #define maxrpm 200
 
@@ -9,18 +9,18 @@
 #define spindleDirPin PB4
 #define prescale_s 256
 #define stepsperrot_s 200
-#define microstep_s 1
+#define microstep_s 2
 
 #define carriageStepPin PB0
 #define carriageDirPin PB3
 #define prescale_c 64
 #define rotpermeter_c 200
 #define stepsperrot_c 200
-#define microstep_c 1
+#define microstep_c 2
 
 #define disablePin PB2
 
-#define steppulse_us 20
+#define steppulse_us 200
 
 #define lambda10 0.00154
 #define lambda20 0.00175
@@ -53,13 +53,13 @@ double angV(double rpm){
 	return (rpm*2*M_PI)/60;
 }
 
-int setmaxrpm(double rpm){
+int setSpindleRpm(double rpm){
 	int compareValue = (int)(60.0*F_CPU/prescale_s/microstep_s/stepsperrot_s/rpm);
 	OCR0B = compareValue;
 }
 
 int setCarriageVelocity(double metersPerSecond){
-	int compareValue = (int)(F_CPU/prescale_c/microstep_c/stepsperrot_c/rotpermeter_c/metersPerSecond);
+	int compareValue = (int)((double)F_CPU/prescale_c/microstep_c/stepsperrot_c/rotpermeter_c/metersPerSecond);
 	OCR1B = compareValue;
 }
 
@@ -69,7 +69,7 @@ int setCarriageRPM(double rpm){
 }
 
 double getCarriageDistance(){
-	return steps_carriage/stepsperrot_c/microstep_c/rotpermeter_c;
+	return (double)steps_carriage/stepsperrot_c/microstep_c/rotpermeter_c;
 }
 
 int rewindCarriage(){
@@ -122,10 +122,10 @@ int setup(void){
 	TCNT1 = 0; //reset and init counter
 	TCNT0 = 0;
 	
-	int spindleStepCompare = (int)ceil((F_CPU*steppulse_us)/(1000000.0*prescale_s)); //how long should we keep the step pin on every pulse?
+	int spindleStepCompare = (int)ceil(((unsigned long)F_CPU*steppulse_us)/(1000000.0*prescale_s)); //how long should we keep the step pin on every pulse?
 	OCR0A = spindleStepCompare;
 	
-	int carriageStepCompare = (int)ceil((F_CPU*steppulse_us)/(1000000.0*prescale_c));
+	int carriageStepCompare = (int)ceil(((unsigned long)F_CPU*steppulse_us)/(1000000.0*prescale_c));
 	OCR1A = carriageStepCompare;
 	
 	PORTB &= ~(1 << carriageDirPin); //set initial direction
@@ -140,7 +140,7 @@ int setup(void){
 int main (void){
 	setup();
 	double dtheta_dt = angV(maxrpm);
-	setmaxrpm(maxrpm);
+	setSpindleRpm(maxrpm);
 	double meters = 0.0;
 	double velocity = 0.0;
 	while(meters < l){
