@@ -3,7 +3,8 @@
 
 #define F_CPU 16000000UL
 
-#define maxrpm 100
+#define maxrpm_s 100
+#define maxrpm_c 50
 
 #define lambda10 0.00154
 #define lambda20 0.00175
@@ -29,14 +30,16 @@
 
 #define steppulse_us 200
 
-#define limitFar PD4
-#define limitClose PD5
+#define limitFar PD5
+#define limitClose PD2
 #define rewindButton PD6
 #define startButton PD7
 
 #define USART_BAUDRATE 9600
 #define UBRR_VALUE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1)
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <avr/io.h> 
 #include <avr/interrupt.h>
 #include <math.h>
@@ -62,17 +65,17 @@ double angV(double rpm){
 	return (rpm*2.0*M_PI)/60.0;
 }
 
-int setSpindleRPM(double rpm){
+void setSpindleRPM(double rpm){
 	int compareValue = (int)(60.0*F_CPU/prescale_s/microstep_s/stepsperrot_s/rpm);
 	OCR0B = compareValue;
 }
 
-int setCarriageRPM(double rpm){
+void setCarriageRPM(double rpm){
 	int compareValue = (int)(60.0*F_CPU/prescale_c/microstep_c/stepsperrot_c/rpm);
 	OCR1B = compareValue;
 }
 
-int setCarriageVelocity(double metersPerSecond){
+void setCarriageVelocity(double metersPerSecond){
 	int compareValue = (int)((double)F_CPU/prescale_c/microstep_c/stepsperrot_c/rotpermeter_c/metersPerSecond);
 	OCR1B = compareValue;
 }
@@ -139,9 +142,18 @@ void USART0String(char* blah){
 	}
 }
 
-int setup(void){ 
+void USART0Number(int number){
+	char snum[5];
+
+	// convert 123 to string [buf]
+	itoa(number, snum, 10);
+	USART0String(snum);
+}
+
+void setup(void){ 
 	DDRB |= (1 << carriageStepPin)|(1 << spindleStepPin)|(1 << carriageDisablePin)|(1 << spindleDirPin)|(1 << carriageDirPin); // Set step pin as output
 	DDRD = 0; //set all pins as inputs
+	//PORTD = 0xFF;
 	DDRD |= (1 << spindleDisablePin); //except for spindleDisable
 	TCCR1B = 0b0011; //set the timer1 prescaler to 64 (bit 3 for CTC) <- p.137 of doc8161
 	// 1 / ( (16000000/64) / (2^8) ) * 1000 = 1.024ms
@@ -166,55 +178,90 @@ int setup(void){
 	
 	USART0Init();
 	
-	sei(); //  Enable global interrupts
+	//sei(); //  Enable global interrupts
 	//F_CPU/prescale/OCR1A/stepsperrot/microstep/rotpermeter  = meter/sec
 	//   steps/sec            |    rot/sec  |  meter/sec
 }
 
-int disableAll(){
+void disableAll(){
 	cli();
 	PORTB |= (1 << carriageDisablePin);
 	PORTD |= (1 << spindleDisablePin);
 }
 
-int rewindCarriage(){
+void rewindCarriage(){
+	sei();
 	PORTD |= (1 << spindleDisablePin); //disable spindle
 	PORTB &= ~(1 << carriageDisablePin);
-	PORTB &= ~(1 << carriageDirPin); //flip the direction
-	setCarriageRPM(maxrpm);
-	while(getCarriageDistance() > 0.0){
-		_delay_ms(1);
+	PORTB |= (1 << carriageDirPin); //flip the direction
+	//PORTB &= ~(1 << carriageDirPin);
+	bool outsideLimit = false;
+	bool closeLimit = false;
+	bool blackButton = false;	
+	bool redButton = false;
+	int buttons;
+	setCarriageRPM(maxrpm_c);
+	while(!closeLimit && !redButton){
+		buttons = PIND;
+		outsideLimit = !(buttons & (1 << limitFar))==0;
+		closeLimit = !(buttons & (1 << limitClose))==0;
+		blackButton = (buttons & (1 << rewindButton))==0;
+		redButton = (buttons & (1 << startButton))==0;
+		_delay_ms(5);
 	}
 }
 
-int windString(){
-	double dtheta_dt = angV(maxrpm);
-	setSpindleRPM(maxrpm);
+void windString(){
+	sei();
+	double dtheta_dt = angV(maxrpm_s);
+	setSpindleRPM(maxrpm_s);
 	double meters = 0.0;
 	double velocity = 0.0;
 	PORTB &= ~(1 << carriageDisablePin); //enable the steppers
 	PORTD &= ~(1 << spindleDisablePin);
-	PORTB |= (1 << carriageDirPin); //set initial direction
+	PORTB &= ~(1 << carriageDirPin); //set initial direction
 	PORTB |= (1 << spindleDirPin);
-	while(meters < l){
+	bool outsideLimit = false;
+	bool closeLimit = false;
+	bool blackButton = false;	
+	bool redButton = false;
+	int buttons;
+	while(meters < l && !outsideLimit && !blackButton){
+		_delay_ms(5);
+		buttons = PIND;
+		outsideLimit = !(buttons & (1 << limitFar))==0;
+		closeLimit = !(buttons & (1 << limitClose))==0;
+		blackButton = (buttons & (1 << rewindButton))==0;
+		redButton = (buttons & (1 << startButton))==0;
 		meters = getCarriageDistance();
 		velocity = newVelocity(meters, dtheta_dt);
 		setCarriageVelocity(velocity);
-		_delay_ms(1);
 	}
 }
 
 int main (void){
 	setup();
+	disableAll();
 	int buttons;
+	bool outsideLimit = false;
+	bool closeLimit = false;
+	bool blackButton = false;	
+	bool redButton = false;
+	USART0String("hello!  ");
 	while(1){
-		_delay_ms(10);
+		_delay_ms(50);
 		buttons = PIND;
-		if (buttons & (1 << rewindButton)){
+		outsideLimit = !(buttons & (1 << limitFar))==0;
+		closeLimit = !(buttons & (1 << limitClose))==0;
+		blackButton = (buttons & (1 << rewindButton))==0;
+		redButton = (buttons & (1 << startButton))==0;
+		if (blackButton){
+			USART0String("rewinding.   ");
 			rewindCarriage();
 			disableAll();
 			_delay_ms(500);
-		}else if (buttons & (1 << startButton)){
+		}else if (redButton){
+			USART0String("winding.   ");
 			windString();
 			disableAll();
 			_delay_ms(500);
