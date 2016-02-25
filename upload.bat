@@ -1,0 +1,1 @@
+avrdude -V -F -C avrdude.conf -p atmega328p -c stk500v1 -P COM3 -b 57600 -U flash:w:stringwinder.hex

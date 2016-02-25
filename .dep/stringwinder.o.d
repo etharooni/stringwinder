@@ -1,0 +1,1 @@
+stringwinder.o: stringwinder.cpp
