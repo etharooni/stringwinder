@@ -9,9 +9,9 @@
 #define lambda10 0.00128
 #define lambda20 0.000713
 #define maxDensity 0.01516
-#define b 0.25
+#define b 0.0
 #define l 0.6
-#define r 0.0012 // sum of radii of the two wires
+#define r 0.00128 // sum of radii of the two wires
 
 #define prescale_s 64
 #define stepsperrot_s 200
@@ -49,44 +49,6 @@
 long long steps_spindle = 0;
 long long steps_carriage = 0;
 bool carriageDirection = false;
-
-void USART0Init(void){
-	// Set baud rate
-	UBRR0H = (uint8_t)(UBRR_VALUE>>8);
-	UBRR0L = (uint8_t)UBRR_VALUE;
-	// Set frame format to 8 data bits, no parity, 1 stop bit
-	UCSR0C |= (1<<UCSZ01)|(1<<UCSZ00);
-	//enable transmission and reception
-	UCSR0B |= (1<<RXEN0)|(1<<TXEN0);
-}
-void USART0SendByte(uint8_t u8Data){
-	//wait while previous byte is completed
-	while(!(UCSR0A&(1<<UDRE0))){};
-	// Transmit data
-	UDR0 = u8Data;
-}
-
-uint8_t USART0ReceiveByte(){
-	// Wait for byte to be received
-	while(!(UCSR0A&(1<<RXC0))){};
-	// Return received data
-	return UDR0;
-}
-
-void USART0String(char* blah){
-	int length = strlen(blah);
-	for(int i=0; i<length; i++){
-		USART0SendByte(blah[i]);
-	}
-}
-
-void USART0Number(int number){
-	char snum[5];
-
-	// convert 123 to string [buf]
-	itoa(number, snum, 10);
-	USART0String(snum);
-}
 
 double newVelocity(double meters, double angularVelocity){
 	double dtheta_dx=(((maxDensity*(1.0-abs(b)))/(1.0+b*cos((2.0*M_PI*meters)/l)))-lambda10)*(1.0/lambda20);
@@ -166,6 +128,46 @@ void setCarriageDirection(bool direction){
 	carriageDirection = direction;
 }
 
+
+void USART0Init(void){
+	// Set baud rate
+	UBRR0H = (uint8_t)(UBRR_VALUE>>8);
+	UBRR0L = (uint8_t)UBRR_VALUE;
+	// Set frame format to 8 data bits, no parity, 1 stop bit
+	UCSR0C |= (1<<UCSZ01)|(1<<UCSZ00);
+	//enable transmission and reception
+	UCSR0B |= (1<<RXEN0)|(1<<TXEN0);
+}
+void USART0SendByte(uint8_t u8Data){
+	//wait while previous byte is completed
+	while(!(UCSR0A&(1<<UDRE0))){};
+	// Transmit data
+	UDR0 = u8Data;
+}
+
+uint8_t USART0ReceiveByte(){
+	// Wait for byte to be received
+	while(!(UCSR0A&(1<<RXC0))){};
+	// Return received data
+	return UDR0;
+}
+
+void USART0String(char* blah){
+	int length = strlen(blah);
+	for(int i=0; i<length; i++){
+		USART0SendByte(blah[i]);
+	}
+}
+
+void USART0Number(int number){
+	char snum[5];
+
+	// convert 123 to string [buf]
+	itoa(number, snum, 10);
+	USART0String(snum);
+}
+
+
 void setup(void){ 
 	DDRB |= (1 << carriageStepPin)|(1 << spindleStepPin)|(1 << carriageDisablePin)|(1 << spindleDirPin)|(1 << carriageDirPin); // Set step pin as output
 	DDRD = 0; //set all pins as inputs
@@ -192,6 +194,7 @@ void setup(void){
 	PORTB |= (1 << carriageDisablePin); //disable on start up
 	PORTD |= (1 << spindleDisablePin);
 	
+	setCarriageDirection(0);
 	USART0Init();
 	
 	//sei(); //  Enable global interrupts
@@ -244,8 +247,8 @@ void rewindCarriage(){
 	
 	setCarriageDirection(1);
 
-	setCarriageRPM(maxrpm_c);
-	//setCarriageVelocity(0.001);
+	//setCarriageRPM(maxrpm_c);
+	setCarriageVelocity(0.005);
 	while(!getFarLimit() && !getRedButton()){
 		_delay_ms(1);
 	}

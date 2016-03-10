@@ -6,513 +6,513 @@
    6               	__tmp_reg__ = 0
    7               	__zero_reg__ = 1
   15               	.Ltext0:
-  16               	.global	_Z10USART0Initv
-  18               	_Z10USART0Initv:
-  19               	.LFB9:
+  16               	.global	__vector_14
+  18               	__vector_14:
+  19               	.LFB10:
   20               	.LM1:
-  21               	/* prologue: function */
-  22               	/* frame size = 0 */
-  23               	.LM2:
-  24 0000 1092 C500 		sts 197,__zero_reg__
-  25               	.LM3:
-  26 0004 87E6      		ldi r24,lo8(103)
-  27 0006 8093 C400 		sts 196,r24
-  28               	.LM4:
-  29 000a E2EC      		ldi r30,lo8(194)
-  30 000c F0E0      		ldi r31,hi8(194)
-  31 000e 8081      		ld r24,Z
-  32 0010 8660      		ori r24,lo8(6)
-  33 0012 8083      		st Z,r24
-  34               	.LM5:
-  35 0014 E1EC      		ldi r30,lo8(193)
-  36 0016 F0E0      		ldi r31,hi8(193)
-  37 0018 8081      		ld r24,Z
-  38 001a 8861      		ori r24,lo8(24)
-  39 001c 8083      		st Z,r24
-  40               	/* epilogue start */
-  41               	.LM6:
-  42 001e 0895      		ret
-  43               	.LFE9:
-  45               	.global	_Z14USART0SendByteh
-  47               	_Z14USART0SendByteh:
-  48               	.LFB10:
-  49               	.LM7:
-  50               	.LVL0:
-  51               	/* prologue: function */
-  52               	/* frame size = 0 */
-  53 0020 982F      		mov r25,r24
-  54               	.LVL1:
-  55               	.L4:
-  56               	.LM8:
-  57 0022 8091 C000 		lds r24,192
-  58 0026 85FF      		sbrs r24,5
-  59 0028 00C0      		rjmp .L4
-  60               	.LM9:
-  61 002a 9093 C600 		sts 198,r25
-  62               	/* epilogue start */
-  63               	.LM10:
-  64 002e 0895      		ret
-  65               	.LFE10:
-  67               	.global	_Z17USART0ReceiveBytev
-  69               	_Z17USART0ReceiveBytev:
-  70               	.LFB11:
-  71               	.LM11:
-  72               	/* prologue: function */
-  73               	/* frame size = 0 */
-  74               	.L8:
-  75               	.LM12:
-  76 0030 8091 C000 		lds r24,192
-  77 0034 87FF      		sbrs r24,7
-  78 0036 00C0      		rjmp .L8
-  79               	.LM13:
-  80 0038 8091 C600 		lds r24,198
-  81               	/* epilogue start */
-  82               	.LM14:
-  83 003c 0895      		ret
-  84               	.LFE11:
-  86               	.global	__vector_14
-  88               	__vector_14:
-  89               	.LFB15:
-  90               	.LM15:
-  91 003e 1F92      		push __zero_reg__
-  92 0040 0F92      		push r0
-  93 0042 0FB6      		in r0,__SREG__
-  94 0044 0F92      		push r0
-  95 0046 1124      		clr __zero_reg__
-  96 0048 1F93      		push r17
-  97 004a 2F93      		push r18
-  98 004c 3F93      		push r19
-  99 004e 4F93      		push r20
- 100 0050 5F93      		push r21
- 101 0052 6F93      		push r22
- 102 0054 7F93      		push r23
- 103 0056 8F93      		push r24
- 104 0058 9F93      		push r25
- 105 005a AF93      		push r26
- 106 005c BF93      		push r27
- 107 005e EF93      		push r30
- 108 0060 FF93      		push r31
- 109               	/* prologue: Signal */
- 110               	/* frame size = 0 */
- 111               	.LM16:
- 112 0062 2B98      		cbi 37-32,3
- 113               	.LM17:
- 114 0064 8091 0000 		lds r24,steps_spindle
- 115 0068 2091 0000 		lds r18,steps_spindle+1
- 116 006c 3091 0000 		lds r19,steps_spindle+2
- 117 0070 4091 0000 		lds r20,steps_spindle+3
- 118 0074 6091 0000 		lds r22,steps_spindle+4
- 119 0078 E091 0000 		lds r30,steps_spindle+5
- 120 007c A091 0000 		lds r26,steps_spindle+6
- 121 0080 1091 0000 		lds r17,steps_spindle+7
- 122 0084 B82F      		mov r27,r24
- 123 0086 BF5F      		subi r27,lo8(-(1))
- 124 0088 91E0      		ldi r25,lo8(1)
- 125 008a B817      		cp r27,r24
- 126 008c 00F0      		brlo .L12
- 127 008e 90E0      		ldi r25,lo8(0)
- 128               	.L12:
- 129 0090 F92F      		mov r31,r25
- 130 0092 F20F      		add r31,r18
- 131 0094 81E0      		ldi r24,lo8(1)
- 132 0096 F217      		cp r31,r18
- 133 0098 00F0      		brlo .L14
- 134 009a 80E0      		ldi r24,lo8(0)
- 135               	.L14:
- 136 009c 782F      		mov r23,r24
- 137 009e 730F      		add r23,r19
- 138 00a0 81E0      		ldi r24,lo8(1)
- 139 00a2 7317      		cp r23,r19
- 140 00a4 00F0      		brlo .L16
- 141 00a6 80E0      		ldi r24,lo8(0)
- 142               	.L16:
- 143 00a8 582F      		mov r21,r24
- 144 00aa 540F      		add r21,r20
- 145 00ac 81E0      		ldi r24,lo8(1)
- 146 00ae 5417      		cp r21,r20
- 147 00b0 00F0      		brlo .L18
- 148 00b2 80E0      		ldi r24,lo8(0)
- 149               	.L18:
- 150 00b4 382F      		mov r19,r24
- 151 00b6 360F      		add r19,r22
- 152 00b8 81E0      		ldi r24,lo8(1)
- 153 00ba 3617      		cp r19,r22
- 154 00bc 00F0      		brlo .L20
- 155 00be 80E0      		ldi r24,lo8(0)
- 156               	.L20:
- 157 00c0 282F      		mov r18,r24
- 158 00c2 2E0F      		add r18,r30
- 159 00c4 81E0      		ldi r24,lo8(1)
- 160 00c6 2E17      		cp r18,r30
- 161 00c8 00F0      		brlo .L22
- 162 00ca 80E0      		ldi r24,lo8(0)
- 163               	.L22:
- 164 00cc 982F      		mov r25,r24
- 165 00ce 9A0F      		add r25,r26
- 166 00d0 81E0      		ldi r24,lo8(1)
- 167 00d2 9A17      		cp r25,r26
- 168 00d4 00F0      		brlo .L24
- 169 00d6 80E0      		ldi r24,lo8(0)
- 170               	.L24:
- 171 00d8 810F      		add r24,r17
- 172 00da B093 0000 		sts steps_spindle,r27
- 173 00de F093 0000 		sts steps_spindle+1,r31
- 174 00e2 7093 0000 		sts steps_spindle+2,r23
- 175 00e6 5093 0000 		sts steps_spindle+3,r21
- 176 00ea 3093 0000 		sts steps_spindle+4,r19
- 177 00ee 2093 0000 		sts steps_spindle+5,r18
- 178 00f2 9093 0000 		sts steps_spindle+6,r25
- 179 00f6 8093 0000 		sts steps_spindle+7,r24
- 180               	/* epilogue start */
- 181               	.LM18:
- 182 00fa FF91      		pop r31
- 183 00fc EF91      		pop r30
- 184 00fe BF91      		pop r27
- 185 0100 AF91      		pop r26
- 186 0102 9F91      		pop r25
- 187 0104 8F91      		pop r24
- 188 0106 7F91      		pop r23
- 189 0108 6F91      		pop r22
- 190 010a 5F91      		pop r21
- 191 010c 4F91      		pop r20
- 192 010e 3F91      		pop r19
- 193 0110 2F91      		pop r18
- 194 0112 1F91      		pop r17
- 195 0114 0F90      		pop r0
- 196 0116 0FBE      		out __SREG__,r0
- 197 0118 0F90      		pop r0
- 198 011a 1F90      		pop __zero_reg__
- 199 011c 1895      		reti
- 200               	.LFE15:
- 202               	.global	__vector_11
- 204               	__vector_11:
- 205               	.LFB16:
- 206               	.LM19:
- 207 011e 1F92      		push __zero_reg__
- 208 0120 0F92      		push r0
- 209 0122 0FB6      		in r0,__SREG__
- 210 0124 0F92      		push r0
- 211 0126 1124      		clr __zero_reg__
- 212 0128 1F93      		push r17
- 213 012a 2F93      		push r18
- 214 012c 3F93      		push r19
- 215 012e 4F93      		push r20
- 216 0130 5F93      		push r21
- 217 0132 6F93      		push r22
- 218 0134 7F93      		push r23
- 219 0136 8F93      		push r24
- 220 0138 9F93      		push r25
- 221 013a AF93      		push r26
- 222 013c BF93      		push r27
- 223 013e EF93      		push r30
- 224 0140 FF93      		push r31
- 225               	/* prologue: Signal */
- 226               	/* frame size = 0 */
- 227               	.LM20:
- 228 0142 2C98      		cbi 37-32,4
- 229               	.LM21:
- 230 0144 8091 0000 		lds r24,steps_carriage
- 231 0148 2091 0000 		lds r18,steps_carriage+1
- 232 014c 3091 0000 		lds r19,steps_carriage+2
- 233 0150 4091 0000 		lds r20,steps_carriage+3
- 234 0154 6091 0000 		lds r22,steps_carriage+4
- 235 0158 E091 0000 		lds r30,steps_carriage+5
- 236 015c A091 0000 		lds r26,steps_carriage+6
- 237 0160 1091 0000 		lds r17,steps_carriage+7
- 238 0164 B82F      		mov r27,r24
- 239 0166 BF5F      		subi r27,lo8(-(1))
- 240 0168 91E0      		ldi r25,lo8(1)
- 241 016a B817      		cp r27,r24
- 242 016c 00F0      		brlo .L27
- 243 016e 90E0      		ldi r25,lo8(0)
- 244               	.L27:
- 245 0170 F92F      		mov r31,r25
- 246 0172 F20F      		add r31,r18
- 247 0174 81E0      		ldi r24,lo8(1)
- 248 0176 F217      		cp r31,r18
- 249 0178 00F0      		brlo .L29
- 250 017a 80E0      		ldi r24,lo8(0)
- 251               	.L29:
- 252 017c 782F      		mov r23,r24
- 253 017e 730F      		add r23,r19
- 254 0180 81E0      		ldi r24,lo8(1)
- 255 0182 7317      		cp r23,r19
- 256 0184 00F0      		brlo .L31
- 257 0186 80E0      		ldi r24,lo8(0)
- 258               	.L31:
- 259 0188 582F      		mov r21,r24
- 260 018a 540F      		add r21,r20
- 261 018c 81E0      		ldi r24,lo8(1)
- 262 018e 5417      		cp r21,r20
- 263 0190 00F0      		brlo .L33
- 264 0192 80E0      		ldi r24,lo8(0)
- 265               	.L33:
- 266 0194 382F      		mov r19,r24
- 267 0196 360F      		add r19,r22
- 268 0198 81E0      		ldi r24,lo8(1)
- 269 019a 3617      		cp r19,r22
- 270 019c 00F0      		brlo .L35
- 271 019e 80E0      		ldi r24,lo8(0)
- 272               	.L35:
- 273 01a0 282F      		mov r18,r24
- 274 01a2 2E0F      		add r18,r30
- 275 01a4 81E0      		ldi r24,lo8(1)
- 276 01a6 2E17      		cp r18,r30
- 277 01a8 00F0      		brlo .L37
- 278 01aa 80E0      		ldi r24,lo8(0)
- 279               	.L37:
- 280 01ac 982F      		mov r25,r24
- 281 01ae 9A0F      		add r25,r26
- 282 01b0 81E0      		ldi r24,lo8(1)
- 283 01b2 9A17      		cp r25,r26
- 284 01b4 00F0      		brlo .L39
- 285 01b6 80E0      		ldi r24,lo8(0)
- 286               	.L39:
- 287 01b8 810F      		add r24,r17
- 288 01ba B093 0000 		sts steps_carriage,r27
- 289 01be F093 0000 		sts steps_carriage+1,r31
- 290 01c2 7093 0000 		sts steps_carriage+2,r23
- 291 01c6 5093 0000 		sts steps_carriage+3,r21
- 292 01ca 3093 0000 		sts steps_carriage+4,r19
- 293 01ce 2093 0000 		sts steps_carriage+5,r18
- 294 01d2 9093 0000 		sts steps_carriage+6,r25
- 295 01d6 8093 0000 		sts steps_carriage+7,r24
- 296               	/* epilogue start */
- 297               	.LM22:
- 298 01da FF91      		pop r31
- 299 01dc EF91      		pop r30
- 300 01de BF91      		pop r27
- 301 01e0 AF91      		pop r26
- 302 01e2 9F91      		pop r25
- 303 01e4 8F91      		pop r24
- 304 01e6 7F91      		pop r23
- 305 01e8 6F91      		pop r22
- 306 01ea 5F91      		pop r21
- 307 01ec 4F91      		pop r20
- 308 01ee 3F91      		pop r19
- 309 01f0 2F91      		pop r18
- 310 01f2 1F91      		pop r17
- 311 01f4 0F90      		pop r0
- 312 01f6 0FBE      		out __SREG__,r0
- 313 01f8 0F90      		pop r0
- 314 01fa 1F90      		pop __zero_reg__
- 315 01fc 1895      		reti
- 316               	.LFE16:
- 318               	.global	__vector_15
- 320               	__vector_15:
- 321               	.LFB17:
- 322               	.LM23:
- 323 01fe 1F92      		push __zero_reg__
- 324 0200 0F92      		push r0
- 325 0202 0FB6      		in r0,__SREG__
- 326 0204 0F92      		push r0
- 327 0206 1124      		clr __zero_reg__
- 328               	/* prologue: Signal */
- 329               	/* frame size = 0 */
- 330               	.LM24:
- 331 0208 2B9A      		sbi 37-32,3
- 332               	.LM25:
- 333 020a 16BC      		out 70-32,__zero_reg__
- 334               	/* epilogue start */
- 335               	.LM26:
- 336 020c 0F90      		pop r0
- 337 020e 0FBE      		out __SREG__,r0
- 338 0210 0F90      		pop r0
- 339 0212 1F90      		pop __zero_reg__
- 340 0214 1895      		reti
- 341               	.LFE17:
- 343               	.global	__vector_12
- 345               	__vector_12:
- 346               	.LFB18:
- 347               	.LM27:
- 348 0216 1F92      		push __zero_reg__
- 349 0218 0F92      		push r0
- 350 021a 0FB6      		in r0,__SREG__
- 351 021c 0F92      		push r0
- 352 021e 1124      		clr __zero_reg__
- 353               	/* prologue: Signal */
- 354               	/* frame size = 0 */
- 355               	.LM28:
- 356 0220 2C9A      		sbi 37-32,4
- 357               	.LM29:
- 358 0222 1092 8500 		sts (132)+1,__zero_reg__
- 359 0226 1092 8400 		sts 132,__zero_reg__
- 360               	/* epilogue start */
- 361               	.LM30:
- 362 022a 0F90      		pop r0
- 363 022c 0FBE      		out __SREG__,r0
- 364 022e 0F90      		pop r0
- 365 0230 1F90      		pop __zero_reg__
- 366 0232 1895      		reti
- 367               	.LFE18:
- 369               	.global	_Z4angVd
- 371               	_Z4angVd:
- 372               	.LFB19:
- 373               	.LM31:
- 374               	.LVL2:
- 375               	/* prologue: function */
- 376               	/* frame size = 0 */
- 377 0234 9B01      		movw r18,r22
- 378 0236 AC01      		movw r20,r24
- 379               	.LM32:
- 380 0238 0E94 0000 		call __addsf3
- 381               	.LVL3:
- 382 023c 2BED      		ldi r18,lo8(0x40490fdb)
- 383 023e 3FE0      		ldi r19,hi8(0x40490fdb)
- 384 0240 49E4      		ldi r20,hlo8(0x40490fdb)
- 385 0242 50E4      		ldi r21,hhi8(0x40490fdb)
- 386 0244 0E94 0000 		call __mulsf3
- 387 0248 20E0      		ldi r18,lo8(0x42700000)
- 388 024a 30E0      		ldi r19,hi8(0x42700000)
- 389 024c 40E7      		ldi r20,hlo8(0x42700000)
- 390 024e 52E4      		ldi r21,hhi8(0x42700000)
- 391 0250 0E94 0000 		call __divsf3
- 392               	/* epilogue start */
- 393               	.LM33:
- 394 0254 0895      		ret
- 395               	.LFE19:
- 397               	.global	_Z13setSpindleRPMd
- 399               	_Z13setSpindleRPMd:
- 400               	.LFB20:
- 401               	.LM34:
- 402               	.LVL4:
- 403               	/* prologue: function */
- 404               	/* frame size = 0 */
- 405 0256 9B01      		movw r18,r22
- 406 0258 AC01      		movw r20,r24
- 407               	.LBB75:
- 408               	.LM35:
- 409 025a 60E0      		ldi r22,lo8(0x46127c00)
- 410 025c 7CE7      		ldi r23,hi8(0x46127c00)
- 411 025e 82E1      		ldi r24,hlo8(0x46127c00)
- 412 0260 96E4      		ldi r25,hhi8(0x46127c00)
- 413               	.LVL5:
- 414 0262 0E94 0000 		call __divsf3
- 415               	.LVL6:
- 416 0266 0E94 0000 		call __fixsfsi
- 417 026a 68BD      		out 72-32,r22
- 418               	/* epilogue start */
- 419               	.LBE75:
- 420               	.LM36:
- 421 026c 0895      		ret
- 422               	.LFE20:
- 424               	.global	_Z14setCarriageRPMd
- 426               	_Z14setCarriageRPMd:
- 427               	.LFB21:
- 428               	.LM37:
- 429               	.LVL7:
- 430               	/* prologue: function */
- 431               	/* frame size = 0 */
- 432 026e 9B01      		movw r18,r22
- 433 0270 AC01      		movw r20,r24
- 434               	.LBB76:
- 435               	.LM38:
- 436 0272 60E0      		ldi r22,lo8(0x46127c00)
- 437 0274 7CE7      		ldi r23,hi8(0x46127c00)
- 438 0276 82E1      		ldi r24,hlo8(0x46127c00)
- 439 0278 96E4      		ldi r25,hhi8(0x46127c00)
- 440               	.LVL8:
- 441 027a 0E94 0000 		call __divsf3
- 442               	.LVL9:
- 443 027e 0E94 0000 		call __fixsfsi
- 444 0282 7093 8B00 		sts (138)+1,r23
- 445 0286 6093 8A00 		sts 138,r22
- 446               	/* epilogue start */
- 447               	.LBE76:
- 448               	.LM39:
- 449 028a 0895      		ret
- 450               	.LFE21:
- 452               	.global	_Z19setCarriageVelocityd
- 454               	_Z19setCarriageVelocityd:
- 455               	.LFB22:
- 456               	.LM40:
- 457               	.LVL10:
- 458               	/* prologue: function */
- 459               	/* frame size = 0 */
- 460 028c 9B01      		movw r18,r22
- 461 028e AC01      		movw r20,r24
- 462               	.LBB77:
- 463               	.LM41:
- 464 0290 60E0      		ldi r22,lo8(0x3f480000)
- 465 0292 70E0      		ldi r23,hi8(0x3f480000)
- 466 0294 88E4      		ldi r24,hlo8(0x3f480000)
- 467 0296 9FE3      		ldi r25,hhi8(0x3f480000)
- 468               	.LVL11:
- 469 0298 0E94 0000 		call __divsf3
- 470               	.LVL12:
- 471 029c 0E94 0000 		call __fixsfsi
- 472 02a0 7093 8B00 		sts (138)+1,r23
- 473 02a4 6093 8A00 		sts 138,r22
- 474               	/* epilogue start */
- 475               	.LBE77:
- 476               	.LM42:
- 477 02a8 0895      		ret
- 478               	.LFE22:
- 480               	.global	_Z19getCarriageDistancev
- 482               	_Z19getCarriageDistancev:
- 483               	.LFB23:
- 484               	.LM43:
- 485               	/* prologue: function */
- 486               	/* frame size = 0 */
- 487               	.LM44:
- 488 02aa 2091 0000 		lds r18,steps_carriage
- 489 02ae 3091 0000 		lds r19,steps_carriage+1
- 490 02b2 4091 0000 		lds r20,steps_carriage+2
- 491 02b6 5091 0000 		lds r21,steps_carriage+3
- 492 02ba 6091 0000 		lds r22,steps_carriage+4
- 493 02be 7091 0000 		lds r23,steps_carriage+5
- 494 02c2 8091 0000 		lds r24,steps_carriage+6
- 495 02c6 9091 0000 		lds r25,steps_carriage+7
- 496 02ca 0E94 0000 		call __floatdisf
- 497 02ce 20E0      		ldi r18,lo8(0x43480000)
- 498 02d0 30E0      		ldi r19,hi8(0x43480000)
- 499 02d2 48E4      		ldi r20,hlo8(0x43480000)
- 500 02d4 53E4      		ldi r21,hhi8(0x43480000)
- 501 02d6 0E94 0000 		call __divsf3
- 502 02da 20E0      		ldi r18,lo8(0x3e000000)
- 503 02dc 30E0      		ldi r19,hi8(0x3e000000)
- 504 02de 40E0      		ldi r20,hlo8(0x3e000000)
- 505 02e0 5EE3      		ldi r21,hhi8(0x3e000000)
- 506 02e2 0E94 0000 		call __mulsf3
- 507 02e6 20E0      		ldi r18,lo8(0x43480000)
- 508 02e8 30E0      		ldi r19,hi8(0x43480000)
- 509 02ea 48E4      		ldi r20,hlo8(0x43480000)
- 510 02ec 53E4      		ldi r21,hhi8(0x43480000)
- 511 02ee 0E94 0000 		call __divsf3
- 512               	/* epilogue start */
- 513               	.LM45:
- 514 02f2 0895      		ret
- 515               	.LFE23:
- 517               	.global	_Z20setCarriageDirectionb
- 519               	_Z20setCarriageDirectionb:
- 520               	.LFB24:
- 521               	.LM46:
- 522               	.LVL13:
- 523               	/* prologue: function */
- 524               	/* frame size = 0 */
- 525               	.LM47:
- 526 02f4 8823      		tst r24
- 527 02f6 01F0      		breq .L56
- 528               	.LM48:
- 529 02f8 289A      		sbi 37-32,0
- 530 02fa 00C0      		rjmp .L57
- 531               	.L56:
- 532               	.LM49:
- 533 02fc 2898      		cbi 37-32,0
- 534               	.L57:
+  21 0000 1F92      		push __zero_reg__
+  22 0002 0F92      		push r0
+  23 0004 0FB6      		in r0,__SREG__
+  24 0006 0F92      		push r0
+  25 0008 1124      		clr __zero_reg__
+  26 000a 1F93      		push r17
+  27 000c 2F93      		push r18
+  28 000e 3F93      		push r19
+  29 0010 4F93      		push r20
+  30 0012 5F93      		push r21
+  31 0014 6F93      		push r22
+  32 0016 7F93      		push r23
+  33 0018 8F93      		push r24
+  34 001a 9F93      		push r25
+  35 001c AF93      		push r26
+  36 001e BF93      		push r27
+  37 0020 EF93      		push r30
+  38 0022 FF93      		push r31
+  39               	/* prologue: Signal */
+  40               	/* frame size = 0 */
+  41               	.LM2:
+  42 0024 2B98      		cbi 37-32,3
+  43               	.LM3:
+  44 0026 8091 0000 		lds r24,steps_spindle
+  45 002a 2091 0000 		lds r18,steps_spindle+1
+  46 002e 3091 0000 		lds r19,steps_spindle+2
+  47 0032 4091 0000 		lds r20,steps_spindle+3
+  48 0036 6091 0000 		lds r22,steps_spindle+4
+  49 003a E091 0000 		lds r30,steps_spindle+5
+  50 003e A091 0000 		lds r26,steps_spindle+6
+  51 0042 1091 0000 		lds r17,steps_spindle+7
+  52 0046 B82F      		mov r27,r24
+  53 0048 BF5F      		subi r27,lo8(-(1))
+  54 004a 91E0      		ldi r25,lo8(1)
+  55 004c B817      		cp r27,r24
+  56 004e 00F0      		brlo .L2
+  57 0050 90E0      		ldi r25,lo8(0)
+  58               	.L2:
+  59 0052 F92F      		mov r31,r25
+  60 0054 F20F      		add r31,r18
+  61 0056 81E0      		ldi r24,lo8(1)
+  62 0058 F217      		cp r31,r18
+  63 005a 00F0      		brlo .L4
+  64 005c 80E0      		ldi r24,lo8(0)
+  65               	.L4:
+  66 005e 782F      		mov r23,r24
+  67 0060 730F      		add r23,r19
+  68 0062 81E0      		ldi r24,lo8(1)
+  69 0064 7317      		cp r23,r19
+  70 0066 00F0      		brlo .L6
+  71 0068 80E0      		ldi r24,lo8(0)
+  72               	.L6:
+  73 006a 582F      		mov r21,r24
+  74 006c 540F      		add r21,r20
+  75 006e 81E0      		ldi r24,lo8(1)
+  76 0070 5417      		cp r21,r20
+  77 0072 00F0      		brlo .L8
+  78 0074 80E0      		ldi r24,lo8(0)
+  79               	.L8:
+  80 0076 382F      		mov r19,r24
+  81 0078 360F      		add r19,r22
+  82 007a 81E0      		ldi r24,lo8(1)
+  83 007c 3617      		cp r19,r22
+  84 007e 00F0      		brlo .L10
+  85 0080 80E0      		ldi r24,lo8(0)
+  86               	.L10:
+  87 0082 282F      		mov r18,r24
+  88 0084 2E0F      		add r18,r30
+  89 0086 81E0      		ldi r24,lo8(1)
+  90 0088 2E17      		cp r18,r30
+  91 008a 00F0      		brlo .L12
+  92 008c 80E0      		ldi r24,lo8(0)
+  93               	.L12:
+  94 008e 982F      		mov r25,r24
+  95 0090 9A0F      		add r25,r26
+  96 0092 81E0      		ldi r24,lo8(1)
+  97 0094 9A17      		cp r25,r26
+  98 0096 00F0      		brlo .L14
+  99 0098 80E0      		ldi r24,lo8(0)
+ 100               	.L14:
+ 101 009a 810F      		add r24,r17
+ 102 009c B093 0000 		sts steps_spindle,r27
+ 103 00a0 F093 0000 		sts steps_spindle+1,r31
+ 104 00a4 7093 0000 		sts steps_spindle+2,r23
+ 105 00a8 5093 0000 		sts steps_spindle+3,r21
+ 106 00ac 3093 0000 		sts steps_spindle+4,r19
+ 107 00b0 2093 0000 		sts steps_spindle+5,r18
+ 108 00b4 9093 0000 		sts steps_spindle+6,r25
+ 109 00b8 8093 0000 		sts steps_spindle+7,r24
+ 110               	/* epilogue start */
+ 111               	.LM4:
+ 112 00bc FF91      		pop r31
+ 113 00be EF91      		pop r30
+ 114 00c0 BF91      		pop r27
+ 115 00c2 AF91      		pop r26
+ 116 00c4 9F91      		pop r25
+ 117 00c6 8F91      		pop r24
+ 118 00c8 7F91      		pop r23
+ 119 00ca 6F91      		pop r22
+ 120 00cc 5F91      		pop r21
+ 121 00ce 4F91      		pop r20
+ 122 00d0 3F91      		pop r19
+ 123 00d2 2F91      		pop r18
+ 124 00d4 1F91      		pop r17
+ 125 00d6 0F90      		pop r0
+ 126 00d8 0FBE      		out __SREG__,r0
+ 127 00da 0F90      		pop r0
+ 128 00dc 1F90      		pop __zero_reg__
+ 129 00de 1895      		reti
+ 130               	.LFE10:
+ 132               	.global	__vector_11
+ 134               	__vector_11:
+ 135               	.LFB11:
+ 136               	.LM5:
+ 137 00e0 1F92      		push __zero_reg__
+ 138 00e2 0F92      		push r0
+ 139 00e4 0FB6      		in r0,__SREG__
+ 140 00e6 0F92      		push r0
+ 141 00e8 1124      		clr __zero_reg__
+ 142 00ea 1F93      		push r17
+ 143 00ec 2F93      		push r18
+ 144 00ee 3F93      		push r19
+ 145 00f0 4F93      		push r20
+ 146 00f2 5F93      		push r21
+ 147 00f4 6F93      		push r22
+ 148 00f6 7F93      		push r23
+ 149 00f8 8F93      		push r24
+ 150 00fa 9F93      		push r25
+ 151 00fc AF93      		push r26
+ 152 00fe BF93      		push r27
+ 153 0100 EF93      		push r30
+ 154 0102 FF93      		push r31
+ 155               	/* prologue: Signal */
+ 156               	/* frame size = 0 */
+ 157               	.LM6:
+ 158 0104 2C98      		cbi 37-32,4
+ 159               	.LM7:
+ 160 0106 8091 0000 		lds r24,steps_carriage
+ 161 010a 2091 0000 		lds r18,steps_carriage+1
+ 162 010e 3091 0000 		lds r19,steps_carriage+2
+ 163 0112 4091 0000 		lds r20,steps_carriage+3
+ 164 0116 6091 0000 		lds r22,steps_carriage+4
+ 165 011a E091 0000 		lds r30,steps_carriage+5
+ 166 011e A091 0000 		lds r26,steps_carriage+6
+ 167 0122 1091 0000 		lds r17,steps_carriage+7
+ 168 0126 B82F      		mov r27,r24
+ 169 0128 BF5F      		subi r27,lo8(-(1))
+ 170 012a 91E0      		ldi r25,lo8(1)
+ 171 012c B817      		cp r27,r24
+ 172 012e 00F0      		brlo .L17
+ 173 0130 90E0      		ldi r25,lo8(0)
+ 174               	.L17:
+ 175 0132 F92F      		mov r31,r25
+ 176 0134 F20F      		add r31,r18
+ 177 0136 81E0      		ldi r24,lo8(1)
+ 178 0138 F217      		cp r31,r18
+ 179 013a 00F0      		brlo .L19
+ 180 013c 80E0      		ldi r24,lo8(0)
+ 181               	.L19:
+ 182 013e 782F      		mov r23,r24
+ 183 0140 730F      		add r23,r19
+ 184 0142 81E0      		ldi r24,lo8(1)
+ 185 0144 7317      		cp r23,r19
+ 186 0146 00F0      		brlo .L21
+ 187 0148 80E0      		ldi r24,lo8(0)
+ 188               	.L21:
+ 189 014a 582F      		mov r21,r24
+ 190 014c 540F      		add r21,r20
+ 191 014e 81E0      		ldi r24,lo8(1)
+ 192 0150 5417      		cp r21,r20
+ 193 0152 00F0      		brlo .L23
+ 194 0154 80E0      		ldi r24,lo8(0)
+ 195               	.L23:
+ 196 0156 382F      		mov r19,r24
+ 197 0158 360F      		add r19,r22
+ 198 015a 81E0      		ldi r24,lo8(1)
+ 199 015c 3617      		cp r19,r22
+ 200 015e 00F0      		brlo .L25
+ 201 0160 80E0      		ldi r24,lo8(0)
+ 202               	.L25:
+ 203 0162 282F      		mov r18,r24
+ 204 0164 2E0F      		add r18,r30
+ 205 0166 81E0      		ldi r24,lo8(1)
+ 206 0168 2E17      		cp r18,r30
+ 207 016a 00F0      		brlo .L27
+ 208 016c 80E0      		ldi r24,lo8(0)
+ 209               	.L27:
+ 210 016e 982F      		mov r25,r24
+ 211 0170 9A0F      		add r25,r26
+ 212 0172 81E0      		ldi r24,lo8(1)
+ 213 0174 9A17      		cp r25,r26
+ 214 0176 00F0      		brlo .L29
+ 215 0178 80E0      		ldi r24,lo8(0)
+ 216               	.L29:
+ 217 017a 810F      		add r24,r17
+ 218 017c B093 0000 		sts steps_carriage,r27
+ 219 0180 F093 0000 		sts steps_carriage+1,r31
+ 220 0184 7093 0000 		sts steps_carriage+2,r23
+ 221 0188 5093 0000 		sts steps_carriage+3,r21
+ 222 018c 3093 0000 		sts steps_carriage+4,r19
+ 223 0190 2093 0000 		sts steps_carriage+5,r18
+ 224 0194 9093 0000 		sts steps_carriage+6,r25
+ 225 0198 8093 0000 		sts steps_carriage+7,r24
+ 226               	/* epilogue start */
+ 227               	.LM8:
+ 228 019c FF91      		pop r31
+ 229 019e EF91      		pop r30
+ 230 01a0 BF91      		pop r27
+ 231 01a2 AF91      		pop r26
+ 232 01a4 9F91      		pop r25
+ 233 01a6 8F91      		pop r24
+ 234 01a8 7F91      		pop r23
+ 235 01aa 6F91      		pop r22
+ 236 01ac 5F91      		pop r21
+ 237 01ae 4F91      		pop r20
+ 238 01b0 3F91      		pop r19
+ 239 01b2 2F91      		pop r18
+ 240 01b4 1F91      		pop r17
+ 241 01b6 0F90      		pop r0
+ 242 01b8 0FBE      		out __SREG__,r0
+ 243 01ba 0F90      		pop r0
+ 244 01bc 1F90      		pop __zero_reg__
+ 245 01be 1895      		reti
+ 246               	.LFE11:
+ 248               	.global	__vector_15
+ 250               	__vector_15:
+ 251               	.LFB12:
+ 252               	.LM9:
+ 253 01c0 1F92      		push __zero_reg__
+ 254 01c2 0F92      		push r0
+ 255 01c4 0FB6      		in r0,__SREG__
+ 256 01c6 0F92      		push r0
+ 257 01c8 1124      		clr __zero_reg__
+ 258               	/* prologue: Signal */
+ 259               	/* frame size = 0 */
+ 260               	.LM10:
+ 261 01ca 2B9A      		sbi 37-32,3
+ 262               	.LM11:
+ 263 01cc 16BC      		out 70-32,__zero_reg__
+ 264               	/* epilogue start */
+ 265               	.LM12:
+ 266 01ce 0F90      		pop r0
+ 267 01d0 0FBE      		out __SREG__,r0
+ 268 01d2 0F90      		pop r0
+ 269 01d4 1F90      		pop __zero_reg__
+ 270 01d6 1895      		reti
+ 271               	.LFE12:
+ 273               	.global	__vector_12
+ 275               	__vector_12:
+ 276               	.LFB13:
+ 277               	.LM13:
+ 278 01d8 1F92      		push __zero_reg__
+ 279 01da 0F92      		push r0
+ 280 01dc 0FB6      		in r0,__SREG__
+ 281 01de 0F92      		push r0
+ 282 01e0 1124      		clr __zero_reg__
+ 283               	/* prologue: Signal */
+ 284               	/* frame size = 0 */
+ 285               	.LM14:
+ 286 01e2 2C9A      		sbi 37-32,4
+ 287               	.LM15:
+ 288 01e4 1092 8500 		sts (132)+1,__zero_reg__
+ 289 01e8 1092 8400 		sts 132,__zero_reg__
+ 290               	/* epilogue start */
+ 291               	.LM16:
+ 292 01ec 0F90      		pop r0
+ 293 01ee 0FBE      		out __SREG__,r0
+ 294 01f0 0F90      		pop r0
+ 295 01f2 1F90      		pop __zero_reg__
+ 296 01f4 1895      		reti
+ 297               	.LFE13:
+ 299               	.global	_Z4angVd
+ 301               	_Z4angVd:
+ 302               	.LFB14:
+ 303               	.LM17:
+ 304               	.LVL0:
+ 305               	/* prologue: function */
+ 306               	/* frame size = 0 */
+ 307 01f6 9B01      		movw r18,r22
+ 308 01f8 AC01      		movw r20,r24
+ 309               	.LM18:
+ 310 01fa 0E94 0000 		call __addsf3
+ 311               	.LVL1:
+ 312 01fe 2BED      		ldi r18,lo8(0x40490fdb)
+ 313 0200 3FE0      		ldi r19,hi8(0x40490fdb)
+ 314 0202 49E4      		ldi r20,hlo8(0x40490fdb)
+ 315 0204 50E4      		ldi r21,hhi8(0x40490fdb)
+ 316 0206 0E94 0000 		call __mulsf3
+ 317 020a 20E0      		ldi r18,lo8(0x42700000)
+ 318 020c 30E0      		ldi r19,hi8(0x42700000)
+ 319 020e 40E7      		ldi r20,hlo8(0x42700000)
+ 320 0210 52E4      		ldi r21,hhi8(0x42700000)
+ 321 0212 0E94 0000 		call __divsf3
+ 322               	/* epilogue start */
+ 323               	.LM19:
+ 324 0216 0895      		ret
+ 325               	.LFE14:
+ 327               	.global	_Z13setSpindleRPMd
+ 329               	_Z13setSpindleRPMd:
+ 330               	.LFB15:
+ 331               	.LM20:
+ 332               	.LVL2:
+ 333               	/* prologue: function */
+ 334               	/* frame size = 0 */
+ 335 0218 9B01      		movw r18,r22
+ 336 021a AC01      		movw r20,r24
+ 337               	.LBB78:
+ 338               	.LM21:
+ 339 021c 60E0      		ldi r22,lo8(0x46127c00)
+ 340 021e 7CE7      		ldi r23,hi8(0x46127c00)
+ 341 0220 82E1      		ldi r24,hlo8(0x46127c00)
+ 342 0222 96E4      		ldi r25,hhi8(0x46127c00)
+ 343               	.LVL3:
+ 344 0224 0E94 0000 		call __divsf3
+ 345               	.LVL4:
+ 346 0228 0E94 0000 		call __fixsfsi
+ 347 022c 68BD      		out 72-32,r22
+ 348               	/* epilogue start */
+ 349               	.LBE78:
+ 350               	.LM22:
+ 351 022e 0895      		ret
+ 352               	.LFE15:
+ 354               	.global	_Z14setCarriageRPMd
+ 356               	_Z14setCarriageRPMd:
+ 357               	.LFB16:
+ 358               	.LM23:
+ 359               	.LVL5:
+ 360               	/* prologue: function */
+ 361               	/* frame size = 0 */
+ 362 0230 9B01      		movw r18,r22
+ 363 0232 AC01      		movw r20,r24
+ 364               	.LBB79:
+ 365               	.LM24:
+ 366 0234 60E0      		ldi r22,lo8(0x46127c00)
+ 367 0236 7CE7      		ldi r23,hi8(0x46127c00)
+ 368 0238 82E1      		ldi r24,hlo8(0x46127c00)
+ 369 023a 96E4      		ldi r25,hhi8(0x46127c00)
+ 370               	.LVL6:
+ 371 023c 0E94 0000 		call __divsf3
+ 372               	.LVL7:
+ 373 0240 0E94 0000 		call __fixsfsi
+ 374 0244 7093 8B00 		sts (138)+1,r23
+ 375 0248 6093 8A00 		sts 138,r22
+ 376               	/* epilogue start */
+ 377               	.LBE79:
+ 378               	.LM25:
+ 379 024c 0895      		ret
+ 380               	.LFE16:
+ 382               	.global	_Z19setCarriageVelocityd
+ 384               	_Z19setCarriageVelocityd:
+ 385               	.LFB17:
+ 386               	.LM26:
+ 387               	.LVL8:
+ 388               	/* prologue: function */
+ 389               	/* frame size = 0 */
+ 390 024e 9B01      		movw r18,r22
+ 391 0250 AC01      		movw r20,r24
+ 392               	.LBB80:
+ 393               	.LM27:
+ 394 0252 60E0      		ldi r22,lo8(0x3f480000)
+ 395 0254 70E0      		ldi r23,hi8(0x3f480000)
+ 396 0256 88E4      		ldi r24,hlo8(0x3f480000)
+ 397 0258 9FE3      		ldi r25,hhi8(0x3f480000)
+ 398               	.LVL9:
+ 399 025a 0E94 0000 		call __divsf3
+ 400               	.LVL10:
+ 401 025e 0E94 0000 		call __fixsfsi
+ 402 0262 7093 8B00 		sts (138)+1,r23
+ 403 0266 6093 8A00 		sts 138,r22
+ 404               	/* epilogue start */
+ 405               	.LBE80:
+ 406               	.LM28:
+ 407 026a 0895      		ret
+ 408               	.LFE17:
+ 410               	.global	_Z19getCarriageDistancev
+ 412               	_Z19getCarriageDistancev:
+ 413               	.LFB18:
+ 414               	.LM29:
+ 415               	/* prologue: function */
+ 416               	/* frame size = 0 */
+ 417               	.LM30:
+ 418 026c 2091 0000 		lds r18,steps_carriage
+ 419 0270 3091 0000 		lds r19,steps_carriage+1
+ 420 0274 4091 0000 		lds r20,steps_carriage+2
+ 421 0278 5091 0000 		lds r21,steps_carriage+3
+ 422 027c 6091 0000 		lds r22,steps_carriage+4
+ 423 0280 7091 0000 		lds r23,steps_carriage+5
+ 424 0284 8091 0000 		lds r24,steps_carriage+6
+ 425 0288 9091 0000 		lds r25,steps_carriage+7
+ 426 028c 0E94 0000 		call __floatdisf
+ 427 0290 20E0      		ldi r18,lo8(0x43480000)
+ 428 0292 30E0      		ldi r19,hi8(0x43480000)
+ 429 0294 48E4      		ldi r20,hlo8(0x43480000)
+ 430 0296 53E4      		ldi r21,hhi8(0x43480000)
+ 431 0298 0E94 0000 		call __divsf3
+ 432 029c 20E0      		ldi r18,lo8(0x3e000000)
+ 433 029e 30E0      		ldi r19,hi8(0x3e000000)
+ 434 02a0 40E0      		ldi r20,hlo8(0x3e000000)
+ 435 02a2 5EE3      		ldi r21,hhi8(0x3e000000)
+ 436 02a4 0E94 0000 		call __mulsf3
+ 437 02a8 20E0      		ldi r18,lo8(0x43480000)
+ 438 02aa 30E0      		ldi r19,hi8(0x43480000)
+ 439 02ac 48E4      		ldi r20,hlo8(0x43480000)
+ 440 02ae 53E4      		ldi r21,hhi8(0x43480000)
+ 441 02b0 0E94 0000 		call __divsf3
+ 442               	/* epilogue start */
+ 443               	.LM31:
+ 444 02b4 0895      		ret
+ 445               	.LFE18:
+ 447               	.global	_Z20setCarriageDirectionb
+ 449               	_Z20setCarriageDirectionb:
+ 450               	.LFB19:
+ 451               	.LM32:
+ 452               	.LVL11:
+ 453               	/* prologue: function */
+ 454               	/* frame size = 0 */
+ 455               	.LM33:
+ 456 02b6 8823      		tst r24
+ 457 02b8 01F0      		breq .L46
+ 458               	.LM34:
+ 459 02ba 289A      		sbi 37-32,0
+ 460 02bc 00C0      		rjmp .L47
+ 461               	.L46:
+ 462               	.LM35:
+ 463 02be 2898      		cbi 37-32,0
+ 464               	.L47:
+ 465               	.LM36:
+ 466 02c0 8093 0000 		sts carriageDirection,r24
+ 467               	/* epilogue start */
+ 468               	.LM37:
+ 469 02c4 0895      		ret
+ 470               	.LFE19:
+ 472               	.global	_Z10USART0Initv
+ 474               	_Z10USART0Initv:
+ 475               	.LFB20:
+ 476               	.LM38:
+ 477               	/* prologue: function */
+ 478               	/* frame size = 0 */
+ 479               	.LM39:
+ 480 02c6 1092 C500 		sts 197,__zero_reg__
+ 481               	.LM40:
+ 482 02ca 87E6      		ldi r24,lo8(103)
+ 483 02cc 8093 C400 		sts 196,r24
+ 484               	.LM41:
+ 485 02d0 E2EC      		ldi r30,lo8(194)
+ 486 02d2 F0E0      		ldi r31,hi8(194)
+ 487 02d4 8081      		ld r24,Z
+ 488 02d6 8660      		ori r24,lo8(6)
+ 489 02d8 8083      		st Z,r24
+ 490               	.LM42:
+ 491 02da E1EC      		ldi r30,lo8(193)
+ 492 02dc F0E0      		ldi r31,hi8(193)
+ 493 02de 8081      		ld r24,Z
+ 494 02e0 8861      		ori r24,lo8(24)
+ 495 02e2 8083      		st Z,r24
+ 496               	/* epilogue start */
+ 497               	.LM43:
+ 498 02e4 0895      		ret
+ 499               	.LFE20:
+ 501               	.global	_Z14USART0SendByteh
+ 503               	_Z14USART0SendByteh:
+ 504               	.LFB21:
+ 505               	.LM44:
+ 506               	.LVL12:
+ 507               	/* prologue: function */
+ 508               	/* frame size = 0 */
+ 509 02e6 982F      		mov r25,r24
+ 510               	.LVL13:
+ 511               	.L52:
+ 512               	.LM45:
+ 513 02e8 8091 C000 		lds r24,192
+ 514 02ec 85FF      		sbrs r24,5
+ 515 02ee 00C0      		rjmp .L52
+ 516               	.LM46:
+ 517 02f0 9093 C600 		sts 198,r25
+ 518               	/* epilogue start */
+ 519               	.LM47:
+ 520 02f4 0895      		ret
+ 521               	.LFE21:
+ 523               	.global	_Z17USART0ReceiveBytev
+ 525               	_Z17USART0ReceiveBytev:
+ 526               	.LFB22:
+ 527               	.LM48:
+ 528               	/* prologue: function */
+ 529               	/* frame size = 0 */
+ 530               	.L56:
+ 531               	.LM49:
+ 532 02f6 8091 C000 		lds r24,192
+ 533 02fa 87FF      		sbrs r24,7
+ 534 02fc 00C0      		rjmp .L56
  535               	.LM50:
- 536 02fe 8093 0000 		sts carriageDirection,r24
+ 536 02fe 8091 C600 		lds r24,198
  537               	/* epilogue start */
  538               	.LM51:
  539 0302 0895      		ret
- 540               	.LFE24:
+ 540               	.LFE22:
  542               	.global	_Z5setupv
  544               	_Z5setupv:
  545               	.LFB25:
  546               	.LM52:
  547               	/* prologue: function */
  548               	/* frame size = 0 */
- 549               	.LBB78:
+ 549               	.LBB81:
  550               	.LM53:
  551 0304 84B1      		in r24,36-32
  552 0306 8F61      		ori r24,lo8(31)
@@ -555,890 +555,898 @@
  589 0344 299A      		sbi 37-32,1
  590               	.LM65:
  591 0346 5B9A      		sbi 43-32,3
- 592               	.LM66:
- 593 0348 0E94 0000 		call _Z10USART0Initv
- 594               	/* epilogue start */
- 595               	.LBE78:
+ 592               	.LBB82:
+ 593               	.LBB83:
+ 594               	.LM66:
+ 595 0348 2898      		cbi 37-32,0
  596               	.LM67:
- 597 034c 0895      		ret
- 598               	.LFE25:
- 600               	.global	_Z10disableAllv
- 602               	_Z10disableAllv:
- 603               	.LFB26:
- 604               	.LM68:
- 605               	/* prologue: function */
- 606               	/* frame size = 0 */
- 607               	.LM69:
- 608               	/* #APP */
- 609               	 ;  203 "stringwinder.cpp" 1
- 610 034e F894      		cli
- 611               	 ;  0 "" 2
+ 597 034a 1092 0000 		sts carriageDirection,__zero_reg__
+ 598               	.LBE83:
+ 599               	.LBE82:
+ 600               	.LM68:
+ 601 034e 0E94 0000 		call _Z10USART0Initv
+ 602               	/* epilogue start */
+ 603               	.LBE81:
+ 604               	.LM69:
+ 605 0352 0895      		ret
+ 606               	.LFE25:
+ 608               	.global	_Z10disableAllv
+ 610               	_Z10disableAllv:
+ 611               	.LFB26:
  612               	.LM70:
- 613               	/* #NOAPP */
- 614 0350 299A      		sbi 37-32,1
+ 613               	/* prologue: function */
+ 614               	/* frame size = 0 */
  615               	.LM71:
- 616 0352 5B9A      		sbi 43-32,3
- 617               	/* epilogue start */
- 618               	.LM72:
- 619 0354 0895      		ret
- 620               	.LFE26:
- 622               	.global	_Z11getFarLimitv
- 624               	_Z11getFarLimitv:
- 625               	.LFB27:
- 626               	.LM73:
- 627               	/* prologue: function */
- 628               	/* frame size = 0 */
- 629               	.LBB79:
- 630               	.LM74:
- 631 0356 89B1      		in r24,41-32
- 632 0358 282F      		mov r18,r24
- 633               	.LVL14:
- 634 035a 30E0      		ldi r19,lo8(0)
- 635               	.LVL15:
- 636               	.LM75:
- 637 035c 8091 0000 		lds r24,carriageDirection
- 638 0360 8823      		tst r24
- 639 0362 01F0      		breq .L64
- 640               	.LM76:
- 641 0364 3695      		lsr r19
- 642 0366 2795      		ror r18
- 643 0368 3695      		lsr r19
- 644 036a 2795      		ror r18
- 645               	.LVL16:
- 646 036c 822F      		mov r24,r18
- 647               	.LVL17:
- 648 036e 8170      		andi r24,lo8(1)
- 649 0370 0895      		ret
- 650               	.LVL18:
- 651               	.L64:
- 652               	.LM77:
- 653 0372 85E0      		ldi r24,5
- 654 0374 3695      	1:	lsr r19
- 655 0376 2795      		ror r18
- 656 0378 8A95      		dec r24
- 657 037a 01F4      		brne 1b
- 658               	.LVL19:
- 659 037c 822F      		mov r24,r18
- 660               	.LVL20:
- 661 037e 8170      		andi r24,lo8(1)
- 662               	.LVL21:
- 663               	.LBE79:
- 664               	.LM78:
- 665 0380 0895      		ret
- 666               	.LFE27:
- 668               	.global	_Z12getRedButtonv
- 670               	_Z12getRedButtonv:
- 671               	.LFB28:
- 672               	.LM79:
- 673               	/* prologue: function */
- 674               	/* frame size = 0 */
- 675               	.LBB80:
- 676               	.LM80:
- 677 0382 89B1      		in r24,41-32
- 678 0384 8095      		com r24
- 679               	.LBE80:
+ 616               	/* #APP */
+ 617               	 ;  206 "stringwinder.cpp" 1
+ 618 0354 F894      		cli
+ 619               	 ;  0 "" 2
+ 620               	.LM72:
+ 621               	/* #NOAPP */
+ 622 0356 299A      		sbi 37-32,1
+ 623               	.LM73:
+ 624 0358 5B9A      		sbi 43-32,3
+ 625               	/* epilogue start */
+ 626               	.LM74:
+ 627 035a 0895      		ret
+ 628               	.LFE26:
+ 630               	.global	_Z11getFarLimitv
+ 632               	_Z11getFarLimitv:
+ 633               	.LFB27:
+ 634               	.LM75:
+ 635               	/* prologue: function */
+ 636               	/* frame size = 0 */
+ 637               	.LBB84:
+ 638               	.LM76:
+ 639 035c 89B1      		in r24,41-32
+ 640 035e 282F      		mov r18,r24
+ 641               	.LVL14:
+ 642 0360 30E0      		ldi r19,lo8(0)
+ 643               	.LVL15:
+ 644               	.LM77:
+ 645 0362 8091 0000 		lds r24,carriageDirection
+ 646 0366 8823      		tst r24
+ 647 0368 01F0      		breq .L64
+ 648               	.LM78:
+ 649 036a 3695      		lsr r19
+ 650 036c 2795      		ror r18
+ 651 036e 3695      		lsr r19
+ 652 0370 2795      		ror r18
+ 653               	.LVL16:
+ 654 0372 822F      		mov r24,r18
+ 655               	.LVL17:
+ 656 0374 8170      		andi r24,lo8(1)
+ 657 0376 0895      		ret
+ 658               	.LVL18:
+ 659               	.L64:
+ 660               	.LM79:
+ 661 0378 85E0      		ldi r24,5
+ 662 037a 3695      	1:	lsr r19
+ 663 037c 2795      		ror r18
+ 664 037e 8A95      		dec r24
+ 665 0380 01F4      		brne 1b
+ 666               	.LVL19:
+ 667 0382 822F      		mov r24,r18
+ 668               	.LVL20:
+ 669 0384 8170      		andi r24,lo8(1)
+ 670               	.LVL21:
+ 671               	.LBE84:
+ 672               	.LM80:
+ 673 0386 0895      		ret
+ 674               	.LFE27:
+ 676               	.global	_Z12getRedButtonv
+ 678               	_Z12getRedButtonv:
+ 679               	.LFB28:
  680               	.LM81:
- 681 0386 881F      		rol r24
- 682 0388 8827      		clr r24
- 683 038a 881F      		rol r24
- 684               	/* epilogue start */
- 685 038c 0895      		ret
- 686               	.LFE28:
- 688               	.global	_Z14getBlackButtonv
- 690               	_Z14getBlackButtonv:
- 691               	.LFB29:
- 692               	.LM82:
- 693               	/* prologue: function */
- 694               	/* frame size = 0 */
- 695               	.LBB81:
- 696               	.LM83:
- 697 038e 89B1      		in r24,41-32
- 698 0390 8295      		swap r24
- 699 0392 8695      		lsr r24
- 700 0394 8695      		lsr r24
- 701 0396 8370      		andi r24,lo8(3)
- 702 0398 8095      		com r24
- 703               	.LBE81:
- 704               	.LM84:
- 705 039a 8170      		andi r24,lo8(1)
- 706               	/* epilogue start */
- 707 039c 0895      		ret
- 708               	.LFE29:
- 710               	.global	_Z14rewindCarriagev
- 712               	_Z14rewindCarriagev:
- 713               	.LFB30:
- 714               	.LM85:
- 715               	/* prologue: function */
- 716               	/* frame size = 0 */
- 717               	.LM86:
- 718               	/* #APP */
- 719               	 ;  241 "stringwinder.cpp" 1
- 720 039e 7894      		sei
- 721               	 ;  0 "" 2
+ 681               	/* prologue: function */
+ 682               	/* frame size = 0 */
+ 683               	.LBB85:
+ 684               	.LM82:
+ 685 0388 89B1      		in r24,41-32
+ 686 038a 8095      		com r24
+ 687               	.LBE85:
+ 688               	.LM83:
+ 689 038c 881F      		rol r24
+ 690 038e 8827      		clr r24
+ 691 0390 881F      		rol r24
+ 692               	/* epilogue start */
+ 693 0392 0895      		ret
+ 694               	.LFE28:
+ 696               	.global	_Z14getBlackButtonv
+ 698               	_Z14getBlackButtonv:
+ 699               	.LFB29:
+ 700               	.LM84:
+ 701               	/* prologue: function */
+ 702               	/* frame size = 0 */
+ 703               	.LBB86:
+ 704               	.LM85:
+ 705 0394 89B1      		in r24,41-32
+ 706 0396 8295      		swap r24
+ 707 0398 8695      		lsr r24
+ 708 039a 8695      		lsr r24
+ 709 039c 8370      		andi r24,lo8(3)
+ 710 039e 8095      		com r24
+ 711               	.LBE86:
+ 712               	.LM86:
+ 713 03a0 8170      		andi r24,lo8(1)
+ 714               	/* epilogue start */
+ 715 03a2 0895      		ret
+ 716               	.LFE29:
+ 718               	.global	_Z14rewindCarriagev
+ 720               	_Z14rewindCarriagev:
+ 721               	.LFB30:
  722               	.LM87:
- 723               	/* #NOAPP */
- 724 03a0 5B9A      		sbi 43-32,3
+ 723               	/* prologue: function */
+ 724               	/* frame size = 0 */
  725               	.LM88:
- 726 03a2 2998      		cbi 37-32,1
- 727               	.LBB82:
- 728               	.LBB83:
- 729               	.LM89:
- 730 03a4 289A      		sbi 37-32,0
- 731               	.LM90:
- 732 03a6 81E0      		ldi r24,lo8(1)
- 733 03a8 8093 0000 		sts carriageDirection,r24
- 734               	.LBE83:
- 735               	.LBE82:
- 736               	.LM91:
- 737 03ac 60E0      		ldi r22,lo8(0x42c80000)
- 738 03ae 70E0      		ldi r23,hi8(0x42c80000)
- 739 03b0 88EC      		ldi r24,hlo8(0x42c80000)
- 740 03b2 92E4      		ldi r25,hhi8(0x42c80000)
- 741 03b4 0E94 0000 		call _Z14setCarriageRPMd
- 742               	.LBB84:
- 743               	.LBB85:
- 744               	.LBB86:
- 745               	.LM92:
- 746 03b8 4091 0000 		lds r20,carriageDirection
- 747               	.LBE86:
- 748               	.LBE85:
- 749               	.LBE84:
+ 726               	/* #APP */
+ 727               	 ;  244 "stringwinder.cpp" 1
+ 728 03a4 7894      		sei
+ 729               	 ;  0 "" 2
+ 730               	.LM89:
+ 731               	/* #NOAPP */
+ 732 03a6 5B9A      		sbi 43-32,3
+ 733               	.LM90:
+ 734 03a8 2998      		cbi 37-32,1
+ 735               	.LBB87:
+ 736               	.LBB88:
+ 737               	.LM91:
+ 738 03aa 289A      		sbi 37-32,0
+ 739               	.LM92:
+ 740 03ac 81E0      		ldi r24,lo8(1)
+ 741 03ae 8093 0000 		sts carriageDirection,r24
+ 742               	.LBE88:
+ 743               	.LBE87:
+ 744               	.LM93:
+ 745 03b2 6AE0      		ldi r22,lo8(0x3ba3d70a)
+ 746 03b4 77ED      		ldi r23,hi8(0x3ba3d70a)
+ 747 03b6 83EA      		ldi r24,hlo8(0x3ba3d70a)
+ 748 03b8 9BE3      		ldi r25,hhi8(0x3ba3d70a)
+ 749 03ba 0E94 0000 		call _Z19setCarriageVelocityd
  750               	.LBB89:
  751               	.LBB90:
  752               	.LBB91:
- 753               	.LBB92:
- 754               	.LBB93:
- 755               	.LM93:
- 756 03bc 20EA      		ldi r18,lo8(4000)
- 757 03be 3FE0      		ldi r19,hi8(4000)
- 758               	.LVL22:
- 759               	.L76:
- 760               	.LBE93:
- 761               	.LBE92:
- 762               	.LBE91:
- 763               	.LBE90:
- 764               	.LBE89:
- 765               	.LBB98:
- 766               	.LBB88:
- 767               	.LBB87:
- 768               	.LM94:
- 769 03c0 89B1      		in r24,41-32
- 770               	.LVL23:
- 771 03c2 90E0      		ldi r25,lo8(0)
- 772               	.LM95:
- 773 03c4 4423      		tst r20
- 774 03c6 01F0      		breq .L73
- 775               	.LM96:
- 776 03c8 9695      		lsr r25
- 777 03ca 8795      		ror r24
- 778 03cc 9695      		lsr r25
- 779 03ce 8795      		ror r24
- 780               	.LVL24:
- 781 03d0 00C0      		rjmp .L78
- 782               	.LVL25:
- 783               	.L73:
- 784               	.LM97:
- 785 03d2 55E0      		ldi r21,5
- 786 03d4 9695      	1:	lsr r25
- 787 03d6 8795      		ror r24
- 788 03d8 5A95      		dec r21
- 789 03da 01F4      		brne 1b
- 790               	.LVL26:
- 791               	.L78:
- 792 03dc 8170      		andi r24,lo8(1)
- 793               	.LVL27:
- 794               	.LBE87:
- 795               	.LBE88:
- 796               	.LBE98:
- 797               	.LM98:
- 798 03de 01F4      		brne .L75
- 799 03e0 4F9B      		sbis 41-32,7
- 800 03e2 00C0      		rjmp .L75
- 801               	.LBB99:
- 802               	.LBB97:
- 803               	.LBB96:
- 804               	.LBB95:
- 805               	.LBB94:
- 806               	.LM99:
- 807 03e4 C901      		movw r24,r18
- 808               	.LVL28:
- 809               	/* #APP */
- 810               	 ;  110 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 811 03e6 0197      		1: sbiw r24,1
- 812 03e8 01F4      		brne 1b
- 813               	 ;  0 "" 2
- 814               	/* #NOAPP */
- 815 03ea 00C0      		rjmp .L76
- 816               	.LVL29:
- 817               	.L75:
- 818               	.LBE94:
- 819               	.LBE95:
- 820               	.LBE96:
- 821               	.LBE97:
- 822               	.LBE99:
- 823               	.LBB100:
- 824               	.LBB101:
- 825               	.LM100:
- 826               	/* #APP */
- 827               	 ;  203 "stringwinder.cpp" 1
- 828 03ec F894      		cli
- 829               	 ;  0 "" 2
- 830               	.LM101:
- 831               	/* #NOAPP */
- 832 03ee 299A      		sbi 37-32,1
+ 753               	.LM94:
+ 754 03be 4091 0000 		lds r20,carriageDirection
+ 755               	.LBE91:
+ 756               	.LBE90:
+ 757               	.LBE89:
+ 758               	.LBB94:
+ 759               	.LBB95:
+ 760               	.LBB96:
+ 761               	.LBB97:
+ 762               	.LBB98:
+ 763               	.LM95:
+ 764 03c2 20EA      		ldi r18,lo8(4000)
+ 765 03c4 3FE0      		ldi r19,hi8(4000)
+ 766               	.LVL22:
+ 767               	.L76:
+ 768               	.LBE98:
+ 769               	.LBE97:
+ 770               	.LBE96:
+ 771               	.LBE95:
+ 772               	.LBE94:
+ 773               	.LBB103:
+ 774               	.LBB93:
+ 775               	.LBB92:
+ 776               	.LM96:
+ 777 03c6 89B1      		in r24,41-32
+ 778               	.LVL23:
+ 779 03c8 90E0      		ldi r25,lo8(0)
+ 780               	.LM97:
+ 781 03ca 4423      		tst r20
+ 782 03cc 01F0      		breq .L73
+ 783               	.LM98:
+ 784 03ce 9695      		lsr r25
+ 785 03d0 8795      		ror r24
+ 786 03d2 9695      		lsr r25
+ 787 03d4 8795      		ror r24
+ 788               	.LVL24:
+ 789 03d6 00C0      		rjmp .L78
+ 790               	.LVL25:
+ 791               	.L73:
+ 792               	.LM99:
+ 793 03d8 55E0      		ldi r21,5
+ 794 03da 9695      	1:	lsr r25
+ 795 03dc 8795      		ror r24
+ 796 03de 5A95      		dec r21
+ 797 03e0 01F4      		brne 1b
+ 798               	.LVL26:
+ 799               	.L78:
+ 800 03e2 8170      		andi r24,lo8(1)
+ 801               	.LVL27:
+ 802               	.LBE92:
+ 803               	.LBE93:
+ 804               	.LBE103:
+ 805               	.LM100:
+ 806 03e4 01F4      		brne .L75
+ 807 03e6 4F9B      		sbis 41-32,7
+ 808 03e8 00C0      		rjmp .L75
+ 809               	.LBB104:
+ 810               	.LBB102:
+ 811               	.LBB101:
+ 812               	.LBB100:
+ 813               	.LBB99:
+ 814               	.LM101:
+ 815 03ea C901      		movw r24,r18
+ 816               	.LVL28:
+ 817               	/* #APP */
+ 818               	 ;  110 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 819 03ec 0197      		1: sbiw r24,1
+ 820 03ee 01F4      		brne 1b
+ 821               	 ;  0 "" 2
+ 822               	/* #NOAPP */
+ 823 03f0 00C0      		rjmp .L76
+ 824               	.LVL29:
+ 825               	.L75:
+ 826               	.LBE99:
+ 827               	.LBE100:
+ 828               	.LBE101:
+ 829               	.LBE102:
+ 830               	.LBE104:
+ 831               	.LBB105:
+ 832               	.LBB106:
  833               	.LM102:
- 834 03f0 5B9A      		sbi 43-32,3
- 835               	/* epilogue start */
- 836               	.LBE101:
- 837               	.LBE100:
+ 834               	/* #APP */
+ 835               	 ;  206 "stringwinder.cpp" 1
+ 836 03f2 F894      		cli
+ 837               	 ;  0 "" 2
  838               	.LM103:
- 839 03f2 0895      		ret
- 840               	.LFE30:
- 842               	.global	_Z11newVelocitydd
- 844               	_Z11newVelocitydd:
- 845               	.LFB14:
- 846               	.LM104:
- 847               	.LVL30:
- 848 03f4 AF92      		push r10
- 849 03f6 BF92      		push r11
- 850 03f8 CF92      		push r12
- 851 03fa DF92      		push r13
- 852 03fc EF92      		push r14
- 853 03fe FF92      		push r15
- 854 0400 0F93      		push r16
- 855 0402 1F93      		push r17
+ 839               	/* #NOAPP */
+ 840 03f4 299A      		sbi 37-32,1
+ 841               	.LM104:
+ 842 03f6 5B9A      		sbi 43-32,3
+ 843               	/* epilogue start */
+ 844               	.LBE106:
+ 845               	.LBE105:
+ 846               	.LM105:
+ 847 03f8 0895      		ret
+ 848               	.LFE30:
+ 850               	.global	_Z12USART0StringPc
+ 852               	_Z12USART0StringPc:
+ 853               	.LFB23:
+ 854               	.LM106:
+ 855               	.LVL30:
  856               	/* prologue: function */
  857               	/* frame size = 0 */
- 858 0404 5901      		movw r10,r18
- 859 0406 6A01      		movw r12,r20
- 860               	.LBB102:
- 861               	.LM105:
- 862 0408 2BED      		ldi r18,lo8(0x40c90fdb)
- 863 040a 3FE0      		ldi r19,hi8(0x40c90fdb)
- 864 040c 49EC      		ldi r20,hlo8(0x40c90fdb)
- 865 040e 50E4      		ldi r21,hhi8(0x40c90fdb)
- 866               	.LVL31:
- 867 0410 0E94 0000 		call __mulsf3
- 868               	.LVL32:
- 869 0414 2AE9      		ldi r18,lo8(0x3f19999a)
- 870 0416 39E9      		ldi r19,hi8(0x3f19999a)
- 871 0418 49E1      		ldi r20,hlo8(0x3f19999a)
- 872 041a 5FE3      		ldi r21,hhi8(0x3f19999a)
- 873 041c 0E94 0000 		call __divsf3
- 874 0420 0E94 0000 		call cos
- 875 0424 20E0      		ldi r18,lo8(0x3e800000)
- 876 0426 30E0      		ldi r19,hi8(0x3e800000)
- 877 0428 40E8      		ldi r20,hlo8(0x3e800000)
- 878 042a 5EE3      		ldi r21,hhi8(0x3e800000)
- 879 042c 0E94 0000 		call __mulsf3
- 880 0430 20E0      		ldi r18,lo8(0x3f800000)
- 881 0432 30E0      		ldi r19,hi8(0x3f800000)
- 882 0434 40E8      		ldi r20,hlo8(0x3f800000)
- 883 0436 5FE3      		ldi r21,hhi8(0x3f800000)
- 884 0438 0E94 0000 		call __addsf3
- 885 043c 9B01      		movw r18,r22
- 886 043e AC01      		movw r20,r24
- 887 0440 66EA      		ldi r22,lo8(0x3c7861a6)
- 888 0442 71E6      		ldi r23,hi8(0x3c7861a6)
- 889 0444 88E7      		ldi r24,hlo8(0x3c7861a6)
- 890 0446 9CE3      		ldi r25,hhi8(0x3c7861a6)
- 891 0448 0E94 0000 		call __divsf3
- 892 044c 2CEA      		ldi r18,lo8(0x3aa7c5ac)
- 893 044e 35EC      		ldi r19,hi8(0x3aa7c5ac)
- 894 0450 47EA      		ldi r20,hlo8(0x3aa7c5ac)
- 895 0452 5AE3      		ldi r21,hhi8(0x3aa7c5ac)
- 896 0454 0E94 0000 		call __subsf3
- 897 0458 29EC      		ldi r18,lo8(0x44af50c9)
- 898 045a 30E5      		ldi r19,hi8(0x44af50c9)
- 899 045c 4FEA      		ldi r20,hlo8(0x44af50c9)
- 900 045e 54E4      		ldi r21,hhi8(0x44af50c9)
- 901 0460 0E94 0000 		call __mulsf3
- 902 0464 9B01      		movw r18,r22
- 903 0466 AC01      		movw r20,r24
- 904               	.LM106:
- 905 0468 0E94 0000 		call __mulsf3
- 906               	.LM107:
- 907 046c 20E0      		ldi r18,lo8(0x3f800000)
- 908 046e 30E0      		ldi r19,hi8(0x3f800000)
- 909 0470 40E8      		ldi r20,hlo8(0x3f800000)
- 910 0472 5FE3      		ldi r21,hhi8(0x3f800000)
- 911 0474 0E94 0000 		call __subsf3
- 912 0478 0E94 0000 		call sqrt
- 913 047c 22E5      		ldi r18,lo8(0x3a9d4952)
- 914 047e 39E4      		ldi r19,hi8(0x3a9d4952)
- 915 0480 4DE9      		ldi r20,hlo8(0x3a9d4952)
- 916 0482 5AE3      		ldi r21,hhi8(0x3a9d4952)
- 917 0484 0E94 0000 		call __divsf3
- 918 0488 7B01      		movw r14,r22
- 919 048a 8C01      		movw r16,r24
- 920               	.LM108:
- 921 048c 20E0      		ldi r18,lo8(0x0)
- 922 048e 30E0      		ldi r19,hi8(0x0)
- 923 0490 40E0      		ldi r20,hlo8(0x0)
- 924 0492 50E0      		ldi r21,hhi8(0x0)
- 925 0494 0E94 0000 		call __gtsf2
- 926 0498 1816      		cp __zero_reg__,r24
- 927 049a 04F0      		brlt .L80
- 928 049c E0E0      		ldi r30,lo8(0)
- 929               	.LVL33:
- 930 049e 70E0      		ldi r23,lo8(0)
- 931               	.LVL34:
- 932 04a0 80E0      		ldi r24,lo8(0)
- 933               	.LVL35:
- 934 04a2 60E0      		ldi r22,lo8(0)
- 935               	.LVL36:
- 936 04a4 00C0      		rjmp .L81
- 937               	.LVL37:
- 938               	.L80:
- 939               	.LBB103:
- 940               	.LM109:
- 941 04a6 C601      		movw r24,r12
- 942 04a8 B501      		movw r22,r10
- 943 04aa A801      		movw r20,r16
- 944 04ac 9701      		movw r18,r14
- 945 04ae 0E94 0000 		call __divsf3
- 946 04b2 E62F      		mov r30,r22
- 947               	.LVL38:
- 948 04b4 692F      		mov r22,r25
- 949               	.LVL39:
- 950               	.L81:
- 951               	.LBE103:
- 952               	.LBE102:
- 953               	.LM110:
- 954 04b6 2E2F      		mov r18,r30
- 955 04b8 372F      		mov r19,r23
- 956 04ba 482F      		mov r20,r24
- 957 04bc 562F      		mov r21,r22
- 958 04be B901      		movw r22,r18
- 959               	.LVL40:
- 960 04c0 CA01      		movw r24,r20
- 961               	.LVL41:
- 962               	/* epilogue start */
- 963 04c2 1F91      		pop r17
- 964 04c4 0F91      		pop r16
- 965 04c6 FF90      		pop r15
- 966 04c8 EF90      		pop r14
- 967 04ca DF90      		pop r13
- 968 04cc CF90      		pop r12
- 969 04ce BF90      		pop r11
- 970 04d0 AF90      		pop r10
- 971               	.LVL42:
- 972 04d2 0895      		ret
- 973               	.LFE14:
- 975               	.global	_Z10windStringv
- 977               	_Z10windStringv:
- 978               	.LFB31:
- 979               	.LM111:
- 980 04d4 AF92      		push r10
- 981 04d6 BF92      		push r11
- 982 04d8 CF92      		push r12
- 983 04da DF92      		push r13
- 984 04dc EF92      		push r14
- 985 04de FF92      		push r15
- 986 04e0 0F93      		push r16
- 987 04e2 1F93      		push r17
- 988 04e4 CF93      		push r28
- 989 04e6 DF93      		push r29
- 990               	/* prologue: function */
- 991               	/* frame size = 0 */
- 992               	.LBB104:
- 993               	.LM112:
- 994 04e8 1092 0000 		sts steps_carriage,__zero_reg__
- 995 04ec 1092 0000 		sts steps_carriage+1,__zero_reg__
- 996 04f0 1092 0000 		sts steps_carriage+2,__zero_reg__
- 997 04f4 1092 0000 		sts steps_carriage+3,__zero_reg__
- 998 04f8 1092 0000 		sts steps_carriage+4,__zero_reg__
- 999 04fc 1092 0000 		sts steps_carriage+5,__zero_reg__
- 1000 0500 1092 0000 		sts steps_carriage+6,__zero_reg__
- 1001 0504 1092 0000 		sts steps_carriage+7,__zero_reg__
- 1002               	.LM113:
- 1003 0508 1092 0000 		sts steps_spindle,__zero_reg__
- 1004 050c 1092 0000 		sts steps_spindle+1,__zero_reg__
- 1005 0510 1092 0000 		sts steps_spindle+2,__zero_reg__
- 1006 0514 1092 0000 		sts steps_spindle+3,__zero_reg__
- 1007 0518 1092 0000 		sts steps_spindle+4,__zero_reg__
- 1008 051c 1092 0000 		sts steps_spindle+5,__zero_reg__
- 1009 0520 1092 0000 		sts steps_spindle+6,__zero_reg__
- 1010 0524 1092 0000 		sts steps_spindle+7,__zero_reg__
- 1011               	.LM114:
- 1012 0528 60E0      		ldi r22,lo8(0x42c80000)
- 1013 052a 70E0      		ldi r23,hi8(0x42c80000)
- 1014 052c 88EC      		ldi r24,hlo8(0x42c80000)
- 1015 052e 92E4      		ldi r25,hhi8(0x42c80000)
- 1016 0530 0E94 0000 		call _Z4angVd
- 1017 0534 5B01      		movw r10,r22
- 1018 0536 6C01      		movw r12,r24
- 1019               	.LVL43:
- 1020               	.LM115:
- 1021 0538 60E0      		ldi r22,lo8(0x42c80000)
- 1022 053a 70E0      		ldi r23,hi8(0x42c80000)
- 1023 053c 88EC      		ldi r24,hlo8(0x42c80000)
- 1024 053e 92E4      		ldi r25,hhi8(0x42c80000)
- 1025 0540 0E94 0000 		call _Z13setSpindleRPMd
- 1026               	.LM116:
- 1027               	/* #APP */
- 1028               	 ;  264 "stringwinder.cpp" 1
- 1029 0544 7894      		sei
- 1030               	 ;  0 "" 2
- 1031               	/* #NOAPP */
- 1032               	.LBB105:
- 1033               	.LBB106:
- 1034               	.LM117:
- 1035 0546 2898      		cbi 37-32,0
- 1036               	.LM118:
- 1037 0548 1092 0000 		sts carriageDirection,__zero_reg__
- 1038               	.LBE106:
- 1039               	.LBE105:
- 1040               	.LM119:
- 1041 054c 2998      		cbi 37-32,1
- 1042               	.LM120:
- 1043 054e 5B98      		cbi 43-32,3
- 1044 0550 0F2E      		mov __tmp_reg__,r31
- 1045 0552 F0E0      		ldi r31,lo8(0x0)
- 1046 0554 EF2E      		mov r14,r31
- 1047 0556 F0E0      		ldi r31,hi8(0x0)
- 1048 0558 FF2E      		mov r15,r31
- 1049 055a F0E0      		ldi r31,hlo8(0x0)
- 1050 055c 0F2F      		mov r16,r31
- 1051 055e F0E0      		ldi r31,hhi8(0x0)
- 1052 0560 1F2F      		mov r17,r31
- 1053 0562 F02D      		mov r31,__tmp_reg__
- 1054               	.LVL44:
- 1055               	.LBB107:
- 1056               	.LBB108:
- 1057               	.LBB109:
- 1058               	.LBB110:
- 1059               	.LBB111:
- 1060               	.LM121:
- 1061 0564 C0E2      		ldi r28,lo8(20000)
- 1062 0566 DEE4      		ldi r29,hi8(20000)
- 1063               	.LVL45:
- 1064               	.L88:
- 1065               	.LBE111:
- 1066               	.LBE110:
- 1067               	.LBE109:
- 1068               	.LBE108:
- 1069               	.LBE107:
- 1070               	.LM122:
- 1071 0568 C801      		movw r24,r16
- 1072 056a B701      		movw r22,r14
- 1073 056c 2AE9      		ldi r18,lo8(0x3f19999a)
- 1074 056e 39E9      		ldi r19,hi8(0x3f19999a)
- 1075 0570 49E1      		ldi r20,hlo8(0x3f19999a)
- 1076 0572 5FE3      		ldi r21,hhi8(0x3f19999a)
- 1077 0574 0E94 0000 		call __ltsf2
- 1078               	.LVL46:
- 1079 0578 8823      		tst r24
- 1080 057a 04F4      		brge .L84
- 1081               	.LBB116:
- 1082               	.LBB117:
- 1083               	.LBB118:
- 1084               	.LM123:
- 1085 057c 89B1      		in r24,41-32
- 1086 057e 282F      		mov r18,r24
- 1087               	.LVL47:
- 1088 0580 30E0      		ldi r19,lo8(0)
- 1089               	.LVL48:
+ 858 03fa AC01      		movw r20,r24
+ 859               	.LBB107:
+ 860               	.LM107:
+ 861 03fc DC01      		movw r26,r24
+ 862               	.LVL31:
+ 863 03fe 0D90      		ld __tmp_reg__,X+
+ 864 0400 0020      		tst __tmp_reg__
+ 865 0402 01F4      		brne .-6
+ 866 0404 1197      		sbiw r26,1
+ 867 0406 A81B      		sub r26,r24
+ 868 0408 B90B      		sbc r27,r25
+ 869 040a 20E0      		ldi r18,lo8(0)
+ 870 040c 30E0      		ldi r19,hi8(0)
+ 871               	.LVL32:
+ 872 040e 00C0      		rjmp .L80
+ 873               	.L82:
+ 874               	.LBB108:
+ 875               	.LM108:
+ 876 0410 FA01      		movw r30,r20
+ 877 0412 E20F      		add r30,r18
+ 878 0414 F31F      		adc r31,r19
+ 879 0416 E081      		ld r30,Z
+ 880               	.LVL33:
+ 881               	.L81:
+ 882               	.LBB109:
+ 883               	.LBB110:
+ 884               	.LM109:
+ 885 0418 8091 C000 		lds r24,192
+ 886 041c 85FF      		sbrs r24,5
+ 887 041e 00C0      		rjmp .L81
+ 888               	.LM110:
+ 889 0420 E093 C600 		sts 198,r30
+ 890               	.LBE110:
+ 891               	.LBE109:
+ 892               	.LM111:
+ 893 0424 2F5F      		subi r18,lo8(-(1))
+ 894 0426 3F4F      		sbci r19,hi8(-(1))
+ 895               	.LVL34:
+ 896               	.L80:
+ 897 0428 2A17      		cp r18,r26
+ 898 042a 3B07      		cpc r19,r27
+ 899 042c 04F0      		brlt .L82
+ 900               	.LVL35:
+ 901               	/* epilogue start */
+ 902               	.LBE108:
+ 903               	.LBE107:
+ 904               	.LM112:
+ 905 042e 0895      		ret
+ 906               	.LFE23:
+ 908               	.global	_Z12USART0Numberi
+ 910               	_Z12USART0Numberi:
+ 911               	.LFB24:
+ 912               	.LM113:
+ 913               	.LVL36:
+ 914 0430 0F93      		push r16
+ 915 0432 1F93      		push r17
+ 916 0434 DF93      		push r29
+ 917 0436 CF93      		push r28
+ 918 0438 00D0      		rcall .
+ 919 043a 00D0      		rcall .
+ 920 043c 0F92      		push __tmp_reg__
+ 921 043e CDB7      		in r28,__SP_L__
+ 922 0440 DEB7      		in r29,__SP_H__
+ 923               	/* prologue: function */
+ 924               	/* frame size = 5 */
+ 925               	.LBB111:
+ 926               	.LM114:
+ 927 0442 8E01      		movw r16,r28
+ 928 0444 0F5F      		subi r16,lo8(-(1))
+ 929 0446 1F4F      		sbci r17,hi8(-(1))
+ 930 0448 B801      		movw r22,r16
+ 931 044a 4AE0      		ldi r20,lo8(10)
+ 932 044c 50E0      		ldi r21,hi8(10)
+ 933 044e 0E94 0000 		call itoa
+ 934               	.LVL37:
+ 935               	.LM115:
+ 936 0452 C801      		movw r24,r16
+ 937 0454 0E94 0000 		call _Z12USART0StringPc
+ 938               	/* epilogue start */
+ 939               	.LBE111:
+ 940               	.LM116:
+ 941 0458 0F90      		pop __tmp_reg__
+ 942 045a 0F90      		pop __tmp_reg__
+ 943 045c 0F90      		pop __tmp_reg__
+ 944 045e 0F90      		pop __tmp_reg__
+ 945 0460 0F90      		pop __tmp_reg__
+ 946 0462 CF91      		pop r28
+ 947 0464 DF91      		pop r29
+ 948 0466 1F91      		pop r17
+ 949 0468 0F91      		pop r16
+ 950 046a 0895      		ret
+ 951               	.LFE24:
+ 953               	.global	_Z11newVelocitydd
+ 955               	_Z11newVelocitydd:
+ 956               	.LFB9:
+ 957               	.LM117:
+ 958               	.LVL38:
+ 959 046c AF92      		push r10
+ 960 046e BF92      		push r11
+ 961 0470 CF92      		push r12
+ 962 0472 DF92      		push r13
+ 963 0474 EF92      		push r14
+ 964 0476 FF92      		push r15
+ 965 0478 0F93      		push r16
+ 966 047a 1F93      		push r17
+ 967               	/* prologue: function */
+ 968               	/* frame size = 0 */
+ 969 047c 5901      		movw r10,r18
+ 970 047e 6A01      		movw r12,r20
+ 971               	.LBB112:
+ 972               	.LM118:
+ 973 0480 2BED      		ldi r18,lo8(0x40c90fdb)
+ 974 0482 3FE0      		ldi r19,hi8(0x40c90fdb)
+ 975 0484 49EC      		ldi r20,hlo8(0x40c90fdb)
+ 976 0486 50E4      		ldi r21,hhi8(0x40c90fdb)
+ 977               	.LVL39:
+ 978 0488 0E94 0000 		call __mulsf3
+ 979               	.LVL40:
+ 980 048c 2AE9      		ldi r18,lo8(0x3f19999a)
+ 981 048e 39E9      		ldi r19,hi8(0x3f19999a)
+ 982 0490 49E1      		ldi r20,hlo8(0x3f19999a)
+ 983 0492 5FE3      		ldi r21,hhi8(0x3f19999a)
+ 984 0494 0E94 0000 		call __divsf3
+ 985 0498 0E94 0000 		call cos
+ 986 049c 20E0      		ldi r18,lo8(0x0)
+ 987 049e 30E0      		ldi r19,hi8(0x0)
+ 988 04a0 40E0      		ldi r20,hlo8(0x0)
+ 989 04a2 50E0      		ldi r21,hhi8(0x0)
+ 990 04a4 0E94 0000 		call __mulsf3
+ 991 04a8 20E0      		ldi r18,lo8(0x3f800000)
+ 992 04aa 30E0      		ldi r19,hi8(0x3f800000)
+ 993 04ac 40E8      		ldi r20,hlo8(0x3f800000)
+ 994 04ae 5FE3      		ldi r21,hhi8(0x3f800000)
+ 995 04b0 0E94 0000 		call __addsf3
+ 996 04b4 9B01      		movw r18,r22
+ 997 04b6 AC01      		movw r20,r24
+ 998 04b8 66EA      		ldi r22,lo8(0x3c7861a6)
+ 999 04ba 71E6      		ldi r23,hi8(0x3c7861a6)
+ 1000 04bc 88E7      		ldi r24,hlo8(0x3c7861a6)
+ 1001 04be 9CE3      		ldi r25,hhi8(0x3c7861a6)
+ 1002 04c0 0E94 0000 		call __divsf3
+ 1003 04c4 2CEA      		ldi r18,lo8(0x3aa7c5ac)
+ 1004 04c6 35EC      		ldi r19,hi8(0x3aa7c5ac)
+ 1005 04c8 47EA      		ldi r20,hlo8(0x3aa7c5ac)
+ 1006 04ca 5AE3      		ldi r21,hhi8(0x3aa7c5ac)
+ 1007 04cc 0E94 0000 		call __subsf3
+ 1008 04d0 29EC      		ldi r18,lo8(0x44af50c9)
+ 1009 04d2 30E5      		ldi r19,hi8(0x44af50c9)
+ 1010 04d4 4FEA      		ldi r20,hlo8(0x44af50c9)
+ 1011 04d6 54E4      		ldi r21,hhi8(0x44af50c9)
+ 1012 04d8 0E94 0000 		call __mulsf3
+ 1013 04dc 9B01      		movw r18,r22
+ 1014 04de AC01      		movw r20,r24
+ 1015               	.LM119:
+ 1016 04e0 0E94 0000 		call __mulsf3
+ 1017               	.LM120:
+ 1018 04e4 20E0      		ldi r18,lo8(0x3f800000)
+ 1019 04e6 30E0      		ldi r19,hi8(0x3f800000)
+ 1020 04e8 40E8      		ldi r20,hlo8(0x3f800000)
+ 1021 04ea 5FE3      		ldi r21,hhi8(0x3f800000)
+ 1022 04ec 0E94 0000 		call __subsf3
+ 1023 04f0 0E94 0000 		call sqrt
+ 1024 04f4 2CEA      		ldi r18,lo8(0x3aa7c5ac)
+ 1025 04f6 35EC      		ldi r19,hi8(0x3aa7c5ac)
+ 1026 04f8 47EA      		ldi r20,hlo8(0x3aa7c5ac)
+ 1027 04fa 5AE3      		ldi r21,hhi8(0x3aa7c5ac)
+ 1028 04fc 0E94 0000 		call __divsf3
+ 1029 0500 7B01      		movw r14,r22
+ 1030 0502 8C01      		movw r16,r24
+ 1031               	.LM121:
+ 1032 0504 20E0      		ldi r18,lo8(0x0)
+ 1033 0506 30E0      		ldi r19,hi8(0x0)
+ 1034 0508 40E0      		ldi r20,hlo8(0x0)
+ 1035 050a 50E0      		ldi r21,hhi8(0x0)
+ 1036 050c 0E94 0000 		call __gtsf2
+ 1037 0510 1816      		cp __zero_reg__,r24
+ 1038 0512 04F0      		brlt .L88
+ 1039 0514 E0E0      		ldi r30,lo8(0)
+ 1040               	.LVL41:
+ 1041 0516 70E0      		ldi r23,lo8(0)
+ 1042               	.LVL42:
+ 1043 0518 80E0      		ldi r24,lo8(0)
+ 1044               	.LVL43:
+ 1045 051a 60E0      		ldi r22,lo8(0)
+ 1046               	.LVL44:
+ 1047 051c 00C0      		rjmp .L89
+ 1048               	.LVL45:
+ 1049               	.L88:
+ 1050               	.LBB113:
+ 1051               	.LM122:
+ 1052 051e C601      		movw r24,r12
+ 1053 0520 B501      		movw r22,r10
+ 1054 0522 A801      		movw r20,r16
+ 1055 0524 9701      		movw r18,r14
+ 1056 0526 0E94 0000 		call __divsf3
+ 1057 052a E62F      		mov r30,r22
+ 1058               	.LVL46:
+ 1059 052c 692F      		mov r22,r25
+ 1060               	.LVL47:
+ 1061               	.L89:
+ 1062               	.LBE113:
+ 1063               	.LBE112:
+ 1064               	.LM123:
+ 1065 052e 2E2F      		mov r18,r30
+ 1066 0530 372F      		mov r19,r23
+ 1067 0532 482F      		mov r20,r24
+ 1068 0534 562F      		mov r21,r22
+ 1069 0536 B901      		movw r22,r18
+ 1070               	.LVL48:
+ 1071 0538 CA01      		movw r24,r20
+ 1072               	.LVL49:
+ 1073               	/* epilogue start */
+ 1074 053a 1F91      		pop r17
+ 1075 053c 0F91      		pop r16
+ 1076 053e FF90      		pop r15
+ 1077 0540 EF90      		pop r14
+ 1078 0542 DF90      		pop r13
+ 1079 0544 CF90      		pop r12
+ 1080 0546 BF90      		pop r11
+ 1081 0548 AF90      		pop r10
+ 1082               	.LVL50:
+ 1083 054a 0895      		ret
+ 1084               	.LFE9:
+ 1086               	.global	_Z10windStringv
+ 1088               	_Z10windStringv:
+ 1089               	.LFB31:
  1090               	.LM124:
- 1091 0582 8091 0000 		lds r24,carriageDirection
- 1092 0586 8823      		tst r24
- 1093 0588 01F0      		breq .L86
- 1094               	.LM125:
- 1095 058a 3695      		lsr r19
- 1096 058c 2795      		ror r18
- 1097 058e 3695      		lsr r19
- 1098 0590 2795      		ror r18
- 1099               	.LVL49:
- 1100 0592 00C0      		rjmp .L91
- 1101               	.L86:
- 1102               	.LM126:
- 1103 0594 75E0      		ldi r23,5
- 1104 0596 3695      	1:	lsr r19
- 1105 0598 2795      		ror r18
- 1106 059a 7A95      		dec r23
- 1107 059c 01F4      		brne 1b
- 1108               	.LVL50:
- 1109               	.L91:
- 1110 059e 822F      		mov r24,r18
- 1111               	.LVL51:
- 1112 05a0 8170      		andi r24,lo8(1)
- 1113               	.LBE118:
- 1114               	.LBE117:
- 1115               	.LBE116:
- 1116               	.LM127:
- 1117 05a2 01F4      		brne .L84
- 1118 05a4 4E9B      		sbis 41-32,6
- 1119 05a6 00C0      		rjmp .L84
- 1120               	.LM128:
- 1121 05a8 0E94 0000 		call _Z19getCarriageDistancev
- 1122               	.LVL52:
- 1123 05ac 7B01      		movw r14,r22
- 1124 05ae 8C01      		movw r16,r24
- 1125               	.LM129:
- 1126 05b0 A601      		movw r20,r12
- 1127 05b2 9501      		movw r18,r10
- 1128 05b4 0E94 0000 		call _Z11newVelocitydd
- 1129               	.LM130:
- 1130 05b8 0E94 0000 		call _Z19setCarriageVelocityd
- 1131               	.LBB119:
- 1132               	.LBB115:
- 1133               	.LBB114:
- 1134               	.LBB113:
- 1135               	.LBB112:
- 1136               	.LM131:
- 1137 05bc CE01      		movw r24,r28
- 1138               	.LVL53:
- 1139               	/* #APP */
- 1140               	 ;  110 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 1141 05be 0197      		1: sbiw r24,1
- 1142 05c0 01F4      		brne 1b
- 1143               	 ;  0 "" 2
- 1144               	/* #NOAPP */
- 1145 05c2 00C0      		rjmp .L88
- 1146               	.LVL54:
- 1147               	.L84:
- 1148               	.LBE112:
- 1149               	.LBE113:
- 1150               	.LBE114:
- 1151               	.LBE115:
- 1152               	.LBE119:
- 1153               	.LBB120:
- 1154               	.LBB121:
- 1155               	.LM132:
- 1156               	/* #APP */
- 1157               	 ;  203 "stringwinder.cpp" 1
- 1158 05c4 F894      		cli
- 1159               	 ;  0 "" 2
- 1160               	.LM133:
- 1161               	/* #NOAPP */
- 1162 05c6 299A      		sbi 37-32,1
- 1163               	.LM134:
- 1164 05c8 5B9A      		sbi 43-32,3
- 1165               	/* epilogue start */
- 1166               	.LBE121:
- 1167               	.LBE120:
- 1168               	.LBE104:
- 1169               	.LM135:
- 1170 05ca DF91      		pop r29
- 1171 05cc CF91      		pop r28
- 1172 05ce 1F91      		pop r17
- 1173 05d0 0F91      		pop r16
- 1174 05d2 FF90      		pop r15
- 1175 05d4 EF90      		pop r14
- 1176               	.LVL55:
- 1177 05d6 DF90      		pop r13
- 1178 05d8 CF90      		pop r12
- 1179 05da BF90      		pop r11
- 1180 05dc AF90      		pop r10
- 1181               	.LVL56:
- 1182 05de 0895      		ret
- 1183               	.LFE31:
- 1185               	.global	_Z12USART0StringPc
- 1187               	_Z12USART0StringPc:
- 1188               	.LFB12:
- 1189               	.LM136:
- 1190               	.LVL57:
- 1191               	/* prologue: function */
- 1192               	/* frame size = 0 */
- 1193 05e0 AC01      		movw r20,r24
- 1194               	.LBB122:
- 1195               	.LM137:
- 1196 05e2 DC01      		movw r26,r24
- 1197               	.LVL58:
- 1198 05e4 0D90      		ld __tmp_reg__,X+
- 1199 05e6 0020      		tst __tmp_reg__
- 1200 05e8 01F4      		brne .-6
- 1201 05ea 1197      		sbiw r26,1
- 1202 05ec A81B      		sub r26,r24
- 1203 05ee B90B      		sbc r27,r25
- 1204 05f0 20E0      		ldi r18,lo8(0)
- 1205 05f2 30E0      		ldi r19,hi8(0)
- 1206               	.LVL59:
- 1207 05f4 00C0      		rjmp .L93
- 1208               	.L95:
- 1209               	.LBB123:
- 1210               	.LM138:
- 1211 05f6 FA01      		movw r30,r20
- 1212 05f8 E20F      		add r30,r18
- 1213 05fa F31F      		adc r31,r19
- 1214 05fc E081      		ld r30,Z
- 1215               	.LVL60:
- 1216               	.L94:
- 1217               	.LBB124:
- 1218               	.LBB125:
- 1219               	.LM139:
- 1220 05fe 8091 C000 		lds r24,192
- 1221 0602 85FF      		sbrs r24,5
- 1222 0604 00C0      		rjmp .L94
- 1223               	.LM140:
- 1224 0606 E093 C600 		sts 198,r30
- 1225               	.LBE125:
- 1226               	.LBE124:
- 1227               	.LM141:
- 1228 060a 2F5F      		subi r18,lo8(-(1))
- 1229 060c 3F4F      		sbci r19,hi8(-(1))
- 1230               	.LVL61:
- 1231               	.L93:
- 1232 060e 2A17      		cp r18,r26
- 1233 0610 3B07      		cpc r19,r27
- 1234 0612 04F0      		brlt .L95
- 1235               	.LVL62:
- 1236               	/* epilogue start */
- 1237               	.LBE123:
- 1238               	.LBE122:
- 1239               	.LM142:
- 1240 0614 0895      		ret
- 1241               	.LFE12:
- 1243               		.data
- 1244               	.LC0:
- 1245 0000 6865 6C6C 		.string	"hello!\n"
- 1245      6F21 0A00 
- 1246               		.text
- 1247               	.global	main
- 1249               	main:
- 1250               	.LFB32:
- 1251               	.LM143:
- 1252 0616 CF93      		push r28
- 1253 0618 DF93      		push r29
- 1254               	/* prologue: function */
- 1255               	/* frame size = 0 */
- 1256               	.LM144:
- 1257 061a 0E94 0000 		call _Z5setupv
- 1258               	.LBB126:
- 1259               	.LBB127:
- 1260               	.LM145:
- 1261               	/* #APP */
- 1262               	 ;  203 "stringwinder.cpp" 1
- 1263 061e F894      		cli
- 1264               	 ;  0 "" 2
- 1265               	.LM146:
- 1266               	/* #NOAPP */
- 1267 0620 299A      		sbi 37-32,1
- 1268               	.LM147:
- 1269 0622 5B9A      		sbi 43-32,3
- 1270               	.LBE127:
- 1271               	.LBE126:
- 1272               	.LM148:
- 1273 0624 80E0      		ldi r24,lo8(.LC0)
- 1274 0626 90E0      		ldi r25,hi8(.LC0)
- 1275 0628 0E94 0000 		call _Z12USART0StringPc
- 1276 062c 2AEF      		ldi r18,lo8(250)
- 1277 062e 30E0      		ldi r19,hi8(250)
- 1278               	.LVL63:
- 1279               	.LBB128:
- 1280               	.LBB129:
- 1281               	.LBB130:
- 1282               	.LBB131:
- 1283               	.LBB132:
- 1284               	.LM149:
- 1285 0630 C0E9      		ldi r28,lo8(400)
- 1286 0632 D1E0      		ldi r29,hi8(400)
- 1287 0634 00C0      		rjmp .L108
- 1288               	.LVL64:
- 1289               	.L100:
- 1290               	.LBE132:
- 1291               	.LBE131:
- 1292               	.LBE130:
- 1293               	.LBE129:
- 1294               	.LBE128:
- 1295               	.LBB137:
- 1296               	.LBB138:
- 1297               	.LBB139:
- 1298               	.LBB140:
- 1299               	.LBB141:
- 1300 0636 CE01      		movw r24,r28
- 1301               	.LVL65:
- 1302               	/* #APP */
- 1303               	 ;  110 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 1304 0638 0197      		1: sbiw r24,1
- 1305 063a 01F4      		brne 1b
- 1306               	 ;  0 "" 2
- 1307               	/* #NOAPP */
- 1308               	.LBE141:
- 1309               	.LBE140:
- 1310               	.LM150:
- 1311 063c 2150      		subi r18,lo8(-(-1))
- 1312 063e 3040      		sbci r19,hi8(-(-1))
- 1313 0640 00C0      		rjmp .L108
- 1314               	.LVL66:
- 1315               	.L103:
- 1316 0642 2AEF      		ldi r18,lo8(250)
- 1317 0644 30E0      		ldi r19,hi8(250)
- 1318 0646 00C0      		rjmp .L100
- 1319               	.LVL67:
- 1320               	.L108:
- 1321               	.LM151:
- 1322 0648 2115      		cp r18,__zero_reg__
- 1323 064a 3105      		cpc r19,__zero_reg__
- 1324 064c 01F4      		brne .L100
- 1325               	.LBE139:
- 1326               	.LBE138:
- 1327               	.LBE137:
- 1328               	.LM152:
- 1329 064e 4E99      		sbic 41-32,6
- 1330 0650 00C0      		rjmp .L101
- 1331               	.LM153:
- 1332 0652 0E94 0000 		call _Z14rewindCarriagev
- 1333               	.LVL68:
- 1334 0656 88E8      		ldi r24,lo8(5000)
- 1335 0658 93E1      		ldi r25,hi8(5000)
- 1336               	.LVL69:
- 1337               	.L102:
- 1338               	.LBB142:
- 1339               	.LBB143:
- 1340               	.LBB144:
- 1341               	.LBB145:
- 1342               	.LBB146:
- 1343               	.LM154:
- 1344 065a FE01      		movw r30,r28
- 1345               	.LVL70:
- 1346               	/* #APP */
- 1347               	 ;  110 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 1348 065c 3197      		1: sbiw r30,1
- 1349 065e 01F4      		brne 1b
- 1350               	 ;  0 "" 2
- 1351               	/* #NOAPP */
- 1352               	.LBE146:
- 1353               	.LBE145:
- 1354               	.LM155:
- 1355 0660 0197      		sbiw r24,1
- 1356               	.LM156:
- 1357 0662 01F4      		brne .L102
- 1358 0664 00C0      		rjmp .L103
- 1359               	.LVL71:
- 1360               	.L101:
- 1361               	.LBE144:
- 1362               	.LBE143:
- 1363               	.LBE142:
- 1364               	.LM157:
- 1365 0666 4F99      		sbic 41-32,7
- 1366 0668 00C0      		rjmp .L103
- 1367               	.LM158:
- 1368 066a 0E94 0000 		call _Z10windStringv
- 1369               	.LVL72:
- 1370 066e 88E8      		ldi r24,lo8(5000)
- 1371 0670 93E1      		ldi r25,hi8(5000)
- 1372               	.LVL73:
- 1373               	.L104:
- 1374               	.LBB147:
- 1375               	.LBB136:
- 1376               	.LBB135:
- 1377               	.LBB134:
- 1378               	.LBB133:
- 1379               	.LM159:
- 1380 0672 FE01      		movw r30,r28
- 1381               	.LVL74:
- 1382               	/* #APP */
- 1383               	 ;  110 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
- 1384 0674 3197      		1: sbiw r30,1
- 1385 0676 01F4      		brne 1b
- 1386               	 ;  0 "" 2
- 1387               	/* #NOAPP */
- 1388               	.LBE133:
- 1389               	.LBE134:
- 1390               	.LM160:
- 1391 0678 0197      		sbiw r24,1
- 1392               	.LM161:
- 1393 067a 01F4      		brne .L104
- 1394 067c 00C0      		rjmp .L103
- 1395               	.LBE135:
- 1396               	.LBE136:
- 1397               	.LBE147:
- 1398               	.LFE32:
- 1400               	.global	_Z12USART0Numberi
- 1402               	_Z12USART0Numberi:
- 1403               	.LFB13:
- 1404               	.LM162:
- 1405               	.LVL75:
- 1406 067e 0F93      		push r16
- 1407 0680 1F93      		push r17
- 1408 0682 DF93      		push r29
- 1409 0684 CF93      		push r28
- 1410 0686 00D0      		rcall .
- 1411 0688 00D0      		rcall .
- 1412 068a 0F92      		push __tmp_reg__
- 1413 068c CDB7      		in r28,__SP_L__
- 1414 068e DEB7      		in r29,__SP_H__
- 1415               	/* prologue: function */
- 1416               	/* frame size = 5 */
- 1417               	.LBB148:
- 1418               	.LM163:
- 1419 0690 8E01      		movw r16,r28
- 1420 0692 0F5F      		subi r16,lo8(-(1))
- 1421 0694 1F4F      		sbci r17,hi8(-(1))
- 1422 0696 B801      		movw r22,r16
- 1423 0698 4AE0      		ldi r20,lo8(10)
- 1424 069a 50E0      		ldi r21,hi8(10)
- 1425 069c 0E94 0000 		call itoa
- 1426               	.LVL76:
- 1427               	.LM164:
- 1428 06a0 C801      		movw r24,r16
- 1429 06a2 0E94 0000 		call _Z12USART0StringPc
- 1430               	/* epilogue start */
- 1431               	.LBE148:
+ 1091 054c AF92      		push r10
+ 1092 054e BF92      		push r11
+ 1093 0550 CF92      		push r12
+ 1094 0552 DF92      		push r13
+ 1095 0554 EF92      		push r14
+ 1096 0556 FF92      		push r15
+ 1097 0558 0F93      		push r16
+ 1098 055a 1F93      		push r17
+ 1099 055c CF93      		push r28
+ 1100 055e DF93      		push r29
+ 1101               	/* prologue: function */
+ 1102               	/* frame size = 0 */
+ 1103               	.LBB114:
+ 1104               	.LM125:
+ 1105 0560 1092 0000 		sts steps_carriage,__zero_reg__
+ 1106 0564 1092 0000 		sts steps_carriage+1,__zero_reg__
+ 1107 0568 1092 0000 		sts steps_carriage+2,__zero_reg__
+ 1108 056c 1092 0000 		sts steps_carriage+3,__zero_reg__
+ 1109 0570 1092 0000 		sts steps_carriage+4,__zero_reg__
+ 1110 0574 1092 0000 		sts steps_carriage+5,__zero_reg__
+ 1111 0578 1092 0000 		sts steps_carriage+6,__zero_reg__
+ 1112 057c 1092 0000 		sts steps_carriage+7,__zero_reg__
+ 1113               	.LM126:
+ 1114 0580 1092 0000 		sts steps_spindle,__zero_reg__
+ 1115 0584 1092 0000 		sts steps_spindle+1,__zero_reg__
+ 1116 0588 1092 0000 		sts steps_spindle+2,__zero_reg__
+ 1117 058c 1092 0000 		sts steps_spindle+3,__zero_reg__
+ 1118 0590 1092 0000 		sts steps_spindle+4,__zero_reg__
+ 1119 0594 1092 0000 		sts steps_spindle+5,__zero_reg__
+ 1120 0598 1092 0000 		sts steps_spindle+6,__zero_reg__
+ 1121 059c 1092 0000 		sts steps_spindle+7,__zero_reg__
+ 1122               	.LM127:
+ 1123 05a0 60E0      		ldi r22,lo8(0x42c80000)
+ 1124 05a2 70E0      		ldi r23,hi8(0x42c80000)
+ 1125 05a4 88EC      		ldi r24,hlo8(0x42c80000)
+ 1126 05a6 92E4      		ldi r25,hhi8(0x42c80000)
+ 1127 05a8 0E94 0000 		call _Z4angVd
+ 1128 05ac 5B01      		movw r10,r22
+ 1129 05ae 6C01      		movw r12,r24
+ 1130               	.LVL51:
+ 1131               	.LM128:
+ 1132 05b0 60E0      		ldi r22,lo8(0x42c80000)
+ 1133 05b2 70E0      		ldi r23,hi8(0x42c80000)
+ 1134 05b4 88EC      		ldi r24,hlo8(0x42c80000)
+ 1135 05b6 92E4      		ldi r25,hhi8(0x42c80000)
+ 1136 05b8 0E94 0000 		call _Z13setSpindleRPMd
+ 1137               	.LM129:
+ 1138               	/* #APP */
+ 1139               	 ;  267 "stringwinder.cpp" 1
+ 1140 05bc 7894      		sei
+ 1141               	 ;  0 "" 2
+ 1142               	/* #NOAPP */
+ 1143               	.LBB115:
+ 1144               	.LBB116:
+ 1145               	.LM130:
+ 1146 05be 2898      		cbi 37-32,0
+ 1147               	.LM131:
+ 1148 05c0 1092 0000 		sts carriageDirection,__zero_reg__
+ 1149               	.LBE116:
+ 1150               	.LBE115:
+ 1151               	.LM132:
+ 1152 05c4 2998      		cbi 37-32,1
+ 1153               	.LM133:
+ 1154 05c6 5B98      		cbi 43-32,3
+ 1155 05c8 0F2E      		mov __tmp_reg__,r31
+ 1156 05ca F0E0      		ldi r31,lo8(0x0)
+ 1157 05cc EF2E      		mov r14,r31
+ 1158 05ce F0E0      		ldi r31,hi8(0x0)
+ 1159 05d0 FF2E      		mov r15,r31
+ 1160 05d2 F0E0      		ldi r31,hlo8(0x0)
+ 1161 05d4 0F2F      		mov r16,r31
+ 1162 05d6 F0E0      		ldi r31,hhi8(0x0)
+ 1163 05d8 1F2F      		mov r17,r31
+ 1164 05da F02D      		mov r31,__tmp_reg__
+ 1165               	.LVL52:
+ 1166               	.LBB117:
+ 1167               	.LBB118:
+ 1168               	.LBB119:
+ 1169               	.LBB120:
+ 1170               	.LBB121:
+ 1171               	.LM134:
+ 1172 05dc C0E2      		ldi r28,lo8(20000)
+ 1173 05de DEE4      		ldi r29,hi8(20000)
+ 1174               	.LVL53:
+ 1175               	.L96:
+ 1176               	.LBE121:
+ 1177               	.LBE120:
+ 1178               	.LBE119:
+ 1179               	.LBE118:
+ 1180               	.LBE117:
+ 1181               	.LM135:
+ 1182 05e0 C801      		movw r24,r16
+ 1183 05e2 B701      		movw r22,r14
+ 1184 05e4 2AE9      		ldi r18,lo8(0x3f19999a)
+ 1185 05e6 39E9      		ldi r19,hi8(0x3f19999a)
+ 1186 05e8 49E1      		ldi r20,hlo8(0x3f19999a)
+ 1187 05ea 5FE3      		ldi r21,hhi8(0x3f19999a)
+ 1188 05ec 0E94 0000 		call __ltsf2
+ 1189               	.LVL54:
+ 1190 05f0 8823      		tst r24
+ 1191 05f2 04F4      		brge .L92
+ 1192               	.LBB126:
+ 1193               	.LBB127:
+ 1194               	.LBB128:
+ 1195               	.LM136:
+ 1196 05f4 89B1      		in r24,41-32
+ 1197 05f6 282F      		mov r18,r24
+ 1198               	.LVL55:
+ 1199 05f8 30E0      		ldi r19,lo8(0)
+ 1200               	.LVL56:
+ 1201               	.LM137:
+ 1202 05fa 8091 0000 		lds r24,carriageDirection
+ 1203 05fe 8823      		tst r24
+ 1204 0600 01F0      		breq .L94
+ 1205               	.LM138:
+ 1206 0602 3695      		lsr r19
+ 1207 0604 2795      		ror r18
+ 1208 0606 3695      		lsr r19
+ 1209 0608 2795      		ror r18
+ 1210               	.LVL57:
+ 1211 060a 00C0      		rjmp .L99
+ 1212               	.L94:
+ 1213               	.LM139:
+ 1214 060c 75E0      		ldi r23,5
+ 1215 060e 3695      	1:	lsr r19
+ 1216 0610 2795      		ror r18
+ 1217 0612 7A95      		dec r23
+ 1218 0614 01F4      		brne 1b
+ 1219               	.LVL58:
+ 1220               	.L99:
+ 1221 0616 822F      		mov r24,r18
+ 1222               	.LVL59:
+ 1223 0618 8170      		andi r24,lo8(1)
+ 1224               	.LBE128:
+ 1225               	.LBE127:
+ 1226               	.LBE126:
+ 1227               	.LM140:
+ 1228 061a 01F4      		brne .L92
+ 1229 061c 4E9B      		sbis 41-32,6
+ 1230 061e 00C0      		rjmp .L92
+ 1231               	.LM141:
+ 1232 0620 0E94 0000 		call _Z19getCarriageDistancev
+ 1233               	.LVL60:
+ 1234 0624 7B01      		movw r14,r22
+ 1235 0626 8C01      		movw r16,r24
+ 1236               	.LM142:
+ 1237 0628 A601      		movw r20,r12
+ 1238 062a 9501      		movw r18,r10
+ 1239 062c 0E94 0000 		call _Z11newVelocitydd
+ 1240               	.LM143:
+ 1241 0630 0E94 0000 		call _Z19setCarriageVelocityd
+ 1242               	.LBB129:
+ 1243               	.LBB125:
+ 1244               	.LBB124:
+ 1245               	.LBB123:
+ 1246               	.LBB122:
+ 1247               	.LM144:
+ 1248 0634 CE01      		movw r24,r28
+ 1249               	.LVL61:
+ 1250               	/* #APP */
+ 1251               	 ;  110 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1252 0636 0197      		1: sbiw r24,1
+ 1253 0638 01F4      		brne 1b
+ 1254               	 ;  0 "" 2
+ 1255               	/* #NOAPP */
+ 1256 063a 00C0      		rjmp .L96
+ 1257               	.LVL62:
+ 1258               	.L92:
+ 1259               	.LBE122:
+ 1260               	.LBE123:
+ 1261               	.LBE124:
+ 1262               	.LBE125:
+ 1263               	.LBE129:
+ 1264               	.LBB130:
+ 1265               	.LBB131:
+ 1266               	.LM145:
+ 1267               	/* #APP */
+ 1268               	 ;  206 "stringwinder.cpp" 1
+ 1269 063c F894      		cli
+ 1270               	 ;  0 "" 2
+ 1271               	.LM146:
+ 1272               	/* #NOAPP */
+ 1273 063e 299A      		sbi 37-32,1
+ 1274               	.LM147:
+ 1275 0640 5B9A      		sbi 43-32,3
+ 1276               	/* epilogue start */
+ 1277               	.LBE131:
+ 1278               	.LBE130:
+ 1279               	.LBE114:
+ 1280               	.LM148:
+ 1281 0642 DF91      		pop r29
+ 1282 0644 CF91      		pop r28
+ 1283 0646 1F91      		pop r17
+ 1284 0648 0F91      		pop r16
+ 1285 064a FF90      		pop r15
+ 1286 064c EF90      		pop r14
+ 1287               	.LVL63:
+ 1288 064e DF90      		pop r13
+ 1289 0650 CF90      		pop r12
+ 1290 0652 BF90      		pop r11
+ 1291 0654 AF90      		pop r10
+ 1292               	.LVL64:
+ 1293 0656 0895      		ret
+ 1294               	.LFE31:
+ 1296               		.data
+ 1297               	.LC0:
+ 1298 0000 6865 6C6C 		.string	"hello!\n"
+ 1298      6F21 0A00 
+ 1299               		.text
+ 1300               	.global	main
+ 1302               	main:
+ 1303               	.LFB32:
+ 1304               	.LM149:
+ 1305 0658 CF93      		push r28
+ 1306 065a DF93      		push r29
+ 1307               	/* prologue: function */
+ 1308               	/* frame size = 0 */
+ 1309               	.LM150:
+ 1310 065c 0E94 0000 		call _Z5setupv
+ 1311               	.LBB132:
+ 1312               	.LBB133:
+ 1313               	.LM151:
+ 1314               	/* #APP */
+ 1315               	 ;  206 "stringwinder.cpp" 1
+ 1316 0660 F894      		cli
+ 1317               	 ;  0 "" 2
+ 1318               	.LM152:
+ 1319               	/* #NOAPP */
+ 1320 0662 299A      		sbi 37-32,1
+ 1321               	.LM153:
+ 1322 0664 5B9A      		sbi 43-32,3
+ 1323               	.LBE133:
+ 1324               	.LBE132:
+ 1325               	.LM154:
+ 1326 0666 80E0      		ldi r24,lo8(.LC0)
+ 1327 0668 90E0      		ldi r25,hi8(.LC0)
+ 1328 066a 0E94 0000 		call _Z12USART0StringPc
+ 1329 066e 2AEF      		ldi r18,lo8(250)
+ 1330 0670 30E0      		ldi r19,hi8(250)
+ 1331               	.LVL65:
+ 1332               	.LBB134:
+ 1333               	.LBB135:
+ 1334               	.LBB136:
+ 1335               	.LBB137:
+ 1336               	.LBB138:
+ 1337               	.LM155:
+ 1338 0672 C0E9      		ldi r28,lo8(400)
+ 1339 0674 D1E0      		ldi r29,hi8(400)
+ 1340 0676 00C0      		rjmp .L110
+ 1341               	.LVL66:
+ 1342               	.L102:
+ 1343               	.LBE138:
+ 1344               	.LBE137:
+ 1345               	.LBE136:
+ 1346               	.LBE135:
+ 1347               	.LBE134:
+ 1348               	.LBB143:
+ 1349               	.LBB144:
+ 1350               	.LBB145:
+ 1351               	.LBB146:
+ 1352               	.LBB147:
+ 1353 0678 CE01      		movw r24,r28
+ 1354               	.LVL67:
+ 1355               	/* #APP */
+ 1356               	 ;  110 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1357 067a 0197      		1: sbiw r24,1
+ 1358 067c 01F4      		brne 1b
+ 1359               	 ;  0 "" 2
+ 1360               	/* #NOAPP */
+ 1361               	.LBE147:
+ 1362               	.LBE146:
+ 1363               	.LM156:
+ 1364 067e 2150      		subi r18,lo8(-(-1))
+ 1365 0680 3040      		sbci r19,hi8(-(-1))
+ 1366 0682 00C0      		rjmp .L110
+ 1367               	.LVL68:
+ 1368               	.L105:
+ 1369 0684 2AEF      		ldi r18,lo8(250)
+ 1370 0686 30E0      		ldi r19,hi8(250)
+ 1371 0688 00C0      		rjmp .L102
+ 1372               	.LVL69:
+ 1373               	.L110:
+ 1374               	.LM157:
+ 1375 068a 2115      		cp r18,__zero_reg__
+ 1376 068c 3105      		cpc r19,__zero_reg__
+ 1377 068e 01F4      		brne .L102
+ 1378               	.LBE145:
+ 1379               	.LBE144:
+ 1380               	.LBE143:
+ 1381               	.LM158:
+ 1382 0690 4E99      		sbic 41-32,6
+ 1383 0692 00C0      		rjmp .L103
+ 1384               	.LM159:
+ 1385 0694 0E94 0000 		call _Z14rewindCarriagev
+ 1386               	.LVL70:
+ 1387 0698 88E8      		ldi r24,lo8(5000)
+ 1388 069a 93E1      		ldi r25,hi8(5000)
+ 1389               	.LVL71:
+ 1390               	.L104:
+ 1391               	.LBB148:
+ 1392               	.LBB149:
+ 1393               	.LBB150:
+ 1394               	.LBB151:
+ 1395               	.LBB152:
+ 1396               	.LM160:
+ 1397 069c FE01      		movw r30,r28
+ 1398               	.LVL72:
+ 1399               	/* #APP */
+ 1400               	 ;  110 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1401 069e 3197      		1: sbiw r30,1
+ 1402 06a0 01F4      		brne 1b
+ 1403               	 ;  0 "" 2
+ 1404               	/* #NOAPP */
+ 1405               	.LBE152:
+ 1406               	.LBE151:
+ 1407               	.LM161:
+ 1408 06a2 0197      		sbiw r24,1
+ 1409               	.LM162:
+ 1410 06a4 01F4      		brne .L104
+ 1411 06a6 00C0      		rjmp .L105
+ 1412               	.LVL73:
+ 1413               	.L103:
+ 1414               	.LBE150:
+ 1415               	.LBE149:
+ 1416               	.LBE148:
+ 1417               	.LM163:
+ 1418 06a8 4F99      		sbic 41-32,7
+ 1419 06aa 00C0      		rjmp .L105
+ 1420               	.LM164:
+ 1421 06ac 0E94 0000 		call _Z10windStringv
+ 1422               	.LVL74:
+ 1423 06b0 88E8      		ldi r24,lo8(5000)
+ 1424 06b2 93E1      		ldi r25,hi8(5000)
+ 1425               	.LVL75:
+ 1426               	.L106:
+ 1427               	.LBB153:
+ 1428               	.LBB142:
+ 1429               	.LBB141:
+ 1430               	.LBB140:
+ 1431               	.LBB139:
  1432               	.LM165:
- 1433 06a6 0F90      		pop __tmp_reg__
- 1434 06a8 0F90      		pop __tmp_reg__
- 1435 06aa 0F90      		pop __tmp_reg__
- 1436 06ac 0F90      		pop __tmp_reg__
- 1437 06ae 0F90      		pop __tmp_reg__
- 1438 06b0 CF91      		pop r28
- 1439 06b2 DF91      		pop r29
- 1440 06b4 1F91      		pop r17
- 1441 06b6 0F91      		pop r16
- 1442 06b8 0895      		ret
- 1443               	.LFE13:
- 1445               	.global	steps_spindle
- 1446               	.global	steps_spindle
- 1447               		.section .bss
- 1450               	steps_spindle:
- 1451 0000 0000 0000 		.skip 8,0
- 1451      0000 0000 
- 1452               	.global	steps_carriage
- 1453               	.global	steps_carriage
- 1456               	steps_carriage:
- 1457 0008 0000 0000 		.skip 8,0
- 1457      0000 0000 
- 1458               	.global	carriageDirection
- 1459               	.global	carriageDirection
- 1462               	carriageDirection:
- 1463 0010 00        		.skip 1,0
- 1672               	.Letext0:
+ 1433 06b4 FE01      		movw r30,r28
+ 1434               	.LVL76:
+ 1435               	/* #APP */
+ 1436               	 ;  110 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 1437 06b6 3197      		1: sbiw r30,1
+ 1438 06b8 01F4      		brne 1b
+ 1439               	 ;  0 "" 2
+ 1440               	/* #NOAPP */
+ 1441               	.LBE139:
+ 1442               	.LBE140:
+ 1443               	.LM166:
+ 1444 06ba 0197      		sbiw r24,1
+ 1445               	.LM167:
+ 1446 06bc 01F4      		brne .L106
+ 1447 06be 00C0      		rjmp .L105
+ 1448               	.LBE141:
+ 1449               	.LBE142:
+ 1450               	.LBE153:
+ 1451               	.LFE32:
+ 1453               	.global	steps_spindle
+ 1454               	.global	steps_spindle
+ 1455               		.section .bss
+ 1458               	steps_spindle:
+ 1459 0000 0000 0000 		.skip 8,0
+ 1459      0000 0000 
+ 1460               	.global	steps_carriage
+ 1461               	.global	steps_carriage
+ 1464               	steps_carriage:
+ 1465 0008 0000 0000 		.skip 8,0
+ 1465      0000 0000 
+ 1466               	.global	carriageDirection
+ 1467               	.global	carriageDirection
+ 1470               	carriageDirection:
+ 1471 0010 00        		.skip 1,0
+ 1680               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 stringwinder.cpp
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:2      *ABS*:0000003f __SREG__
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:3      *ABS*:0000003e __SP_H__
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:4      *ABS*:0000003d __SP_L__
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:5      *ABS*:00000034 __CCP__
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:18     .text:00000000 _Z10USART0Initv
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:47     .text:00000020 _Z14USART0SendByteh
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:69     .text:00000030 _Z17USART0ReceiveBytev
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:88     .text:0000003e __vector_14
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:1450   .bss:00000000 steps_spindle
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:204    .text:0000011e __vector_11
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:1456   .bss:00000008 steps_carriage
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:320    .text:000001fe __vector_15
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:345    .text:00000216 __vector_12
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:371    .text:00000234 _Z4angVd
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:399    .text:00000256 _Z13setSpindleRPMd
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:426    .text:0000026e _Z14setCarriageRPMd
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:454    .text:0000028c _Z19setCarriageVelocityd
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:482    .text:000002aa _Z19getCarriageDistancev
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:519    .text:000002f4 _Z20setCarriageDirectionb
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:1462   .bss:00000010 carriageDirection
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:544    .text:00000304 _Z5setupv
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:602    .text:0000034e _Z10disableAllv
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:624    .text:00000356 _Z11getFarLimitv
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:670    .text:00000382 _Z12getRedButtonv
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:690    .text:0000038e _Z14getBlackButtonv
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:712    .text:0000039e _Z14rewindCarriagev
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:844    .text:000003f4 _Z11newVelocitydd
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:977    .text:000004d4 _Z10windStringv
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:1187   .text:000005e0 _Z12USART0StringPc
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:1249   .text:00000616 main
-C:\Users\physics\AppData\Local\Temp/ccyqIXBH.s:1402   .text:0000067e _Z12USART0Numberi
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:2      *ABS*:0000003f __SREG__
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:3      *ABS*:0000003e __SP_H__
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:4      *ABS*:0000003d __SP_L__
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:5      *ABS*:00000034 __CCP__
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:18     .text:00000000 __vector_14
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:1458   .bss:00000000 steps_spindle
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:134    .text:000000e0 __vector_11
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:1464   .bss:00000008 steps_carriage
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:250    .text:000001c0 __vector_15
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:275    .text:000001d8 __vector_12
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:301    .text:000001f6 _Z4angVd
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:329    .text:00000218 _Z13setSpindleRPMd
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:356    .text:00000230 _Z14setCarriageRPMd
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:384    .text:0000024e _Z19setCarriageVelocityd
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:412    .text:0000026c _Z19getCarriageDistancev
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:449    .text:000002b6 _Z20setCarriageDirectionb
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:1470   .bss:00000010 carriageDirection
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:474    .text:000002c6 _Z10USART0Initv
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:503    .text:000002e6 _Z14USART0SendByteh
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:525    .text:000002f6 _Z17USART0ReceiveBytev
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:544    .text:00000304 _Z5setupv
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:610    .text:00000354 _Z10disableAllv
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:632    .text:0000035c _Z11getFarLimitv
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:678    .text:00000388 _Z12getRedButtonv
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:698    .text:00000394 _Z14getBlackButtonv
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:720    .text:000003a4 _Z14rewindCarriagev
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:852    .text:000003fa _Z12USART0StringPc
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:910    .text:00000430 _Z12USART0Numberi
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:955    .text:0000046c _Z11newVelocitydd
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:1088   .text:0000054c _Z10windStringv
+C:\Users\physics\AppData\Local\Temp/ccZXDFRP.s:1302   .text:00000658 main
 
 UNDEFINED SYMBOLS
 __addsf3
@@ -1446,11 +1454,11 @@ __mulsf3
 __divsf3
 __fixsfsi
 __floatdisf
+itoa
 cos
 __subsf3
 sqrt
 __gtsf2
 __ltsf2
-itoa
 __do_copy_data
 __do_clear_bss
