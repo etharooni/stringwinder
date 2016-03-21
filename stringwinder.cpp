@@ -6,12 +6,15 @@
 #define maxrpm_s 100
 #define maxrpm_c maxrpm_s
 
-#define lambda10 0.00128
-#define lambda20 0.000713
-#define maxDensity 0.01516
-#define b 0.0
+#define rho1 7725.0
+#define d1 0.00045
+#define rho2 8873.0
+#define d2 0.00031
 #define l 0.6
-#define r 0.00128 // sum of radii of the two wires
+#define b 0.0
+#define lambda10 (rho1*M_PI*d1*d1)/4.0
+#define lambda20 (rho2*M_PI*d2*d2)/4.0
+#define r (d1+d2)/2.0
 
 #define prescale_s 64
 #define stepsperrot_s 200
@@ -49,6 +52,8 @@
 long long steps_spindle = 0;
 long long steps_carriage = 0;
 bool carriageDirection = false;
+
+double maxDensity;
 
 double newVelocity(double meters, double angularVelocity){
 	double dtheta_dx=(((maxDensity*(1.0-abs(b)))/(1.0+b*cos((2.0*M_PI*meters)/l)))-lambda10)*(1.0/lambda20);
@@ -193,6 +198,9 @@ void setup(void){
 	
 	PORTB |= (1 << carriageDisablePin); //disable on start up
 	PORTD |= (1 << spindleDisablePin);
+	
+	double maxDensity = (2.0*M_PI*r/d2);
+	maxDensity = lambda10+lambda20*sqrt(1.0+maxDensity*maxDensity);
 	
 	setCarriageDirection(0);
 	USART0Init();
